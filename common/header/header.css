@@ -1,0 +1,21 @@
+.nav-item a {
+    position: relative;
+    text-decoration: none;
+}
+
+.nav-item a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #fff;
+    visibility: hidden;
+    transition: all 0.3s ease-in-out;
+}
+
+.nav-item a:hover::after {
+    visibility: visible;
+    width: 100%;
+}
