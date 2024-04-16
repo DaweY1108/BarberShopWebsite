@@ -1,6 +1,7 @@
 <?php
+    $title = "PixelPlaza";
     $headerText = array(
-        "title" => "Webshop",
+        "title" => "PixelPlaza",
         "login" => "Bejelentkezés",
         "signup" => "Regisztráció",
         "contact" => "Kapcsolat",
