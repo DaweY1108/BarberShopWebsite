@@ -12,7 +12,7 @@
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-light">
-        <a class="navbar-brand text-light" href="#"><?= $headerText['title']; ?></a>
+        <a class="navbar-brand text-light" href="#"><i class="fa-solid fa-shop"></i> <?= $headerText['title']; ?></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
