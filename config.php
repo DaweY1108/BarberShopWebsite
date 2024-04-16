@@ -6,4 +6,5 @@
         "signup" => "Regisztráció",
         "contact" => "Kapcsolat",
     );
+    $footerText = "© ".Date('Y')." - PixelPlaza";
 ?>
