@@ -11,29 +11,22 @@
       <h1>- Üdvözöllek -</h1>
       <h2>A PixelPlaza Weboldalán</h2>
       <hr style="border-width: 1px; border-color: black" class="w-50">
+      <h4 class="pt-5">Készülj fel a kalandra! Fedezd fel a pixelplaza világát!</h4>
     </div>
     <?= $fullDivider; ?>
     <div class="container my-5">
       <div class="row">
           <div class="col">
-              <div class="card my-2 border-1 text-center card-bg">
+              <h3 class="text-center">Itt találsz meg minket</h3>
+              <hr style="border-width: 1px; border-color: black" class="w-50">
+              <div class="card my-2 border-0 text-center card-bg">
                   <div class="card-body">
-                      <h2 class="card-title text-center">Webshop</h2>
-                      <hr style="border-width: 1px; border-color: black">
-                      <p class="card-text text-justify">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                      <hr style="border-width: 1px; border-color: black">
-                      <a href="#" class="btn btn-dark w-100">Ugrás a webshopra</a>
-                  </div>
-              </div>
-          </div>
-          <div class="col">
-              <div class="card my-2 border-1 text-center card-bg">
-                  <div class="card-body">
-                      <h2 class="card-title text-center">Galéria</h2>
-                      <hr style="border-width: 1px; border-color: black">
-                      <p class="card-text text-justify">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                      <hr style="border-width: 1px; border-color: black">
-                      <a href="#" class="btn btn-dark w-100">Ugrás a galériára</a>
+                    <iframe 
+                      style="width:100%;border:0;" 
+                      height="450"
+                      frameborder="0" 
+                      src="https://www.google.com/maps/embed/v1/place?q=Kecskemét,+Neumann+János+Egyetem+GAMF+Műszaki+és+Informatikai+Kar,+Izsáki+út,+Magyarország&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8">
+                    </iframe>
                   </div>
               </div>
           </div>
