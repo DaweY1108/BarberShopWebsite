@@ -1,11 +1,9 @@
 <?php
     $title = "PixelPlaza";
-    $headerText = array(
+    $menuItems = array(
         "title" => "PixelPlaza",
-        "login" => "Bejelentkezés",
-        "signup" => "Regisztráció",
+        "login" => "Belépés",
         "contact" => "Kapcsolat",
         "gallery" => "Galéria",
     );
-    $footerText = "© ".Date('Y')." - PixelPlaza";
 ?>
