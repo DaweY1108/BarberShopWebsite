@@ -5,9 +5,9 @@
 <!DOCTYPE html>
 <html>
 <body class="body-bg">
-    <div class="d-flex align-items-center vh-100">
+    <div style="display: flex; align-items: center; justify-content: center; height: 35rem;">
         <div class="container">
-            <div class="row justify-content-center py-6">
+            <div class="row justify-content-center">
                 <div class="col-lg-6">
                     <div class="card card-bg">
                         <div class="card-body">
@@ -33,7 +33,8 @@
                                     <label for="password-again">Jelszó újra:</label>
                                     <input type="password" class="form-control" id="password-again" name="password-again" required>
                                 </div>
-                                <button type="submit" class="btn btn-primary w-100">Register</button>
+                                <h6 class="text-center">Már van fiókod? <a href="?site=login">Jelentkezz be!</a></h6>
+                                <button type="submit" class="btn btn-dark w-100">Regisztráció</button>
                             </form>
                         </div>
                     </div>
