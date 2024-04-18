@@ -27,7 +27,7 @@
                 if (!isset($site)) $site='home';
                 $invalide = array('\\','/','/\/',':','.');
                 $site = str_replace($invalide,' ',$site);
-                if (!file_exists($site .'.php')) $site = 'home';
+                if (!file_exists($site .'.php')) $site = 'error';
                 include($site .'.php');
             ?>
         </div>
