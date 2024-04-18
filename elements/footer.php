@@ -1,5 +1,5 @@
 <?php
-    $footerText = "© ".Date('Y')." - PixelPlaza";
+    $footerText = "© ".Date('Y')." - ".$title;
 ?>
 
 <!DOCTYPE html>

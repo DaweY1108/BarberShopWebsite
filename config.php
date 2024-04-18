@@ -1,9 +1,12 @@
 <?php
-    $title = "PixelPlaza";
+    $title = "RazorRoom";
     $menuItems = array(
-        "title" => "PixelPlaza",
+        "title" => "RazorRoom",
         "login" => "Belépés",
         "contact" => "Kapcsolat",
         "gallery" => "Galéria",
+        "barbers" => "Borbélyok",
+        "services" => "Szolgáltatások",
+        "about" => "Rólunk",
     );
 ?>
