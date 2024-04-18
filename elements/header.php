@@ -18,7 +18,7 @@
                         <a class="nav-link text-light" href="#"><?= $headerText['login']; ?></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-light" href="#"><?= $headerText['signup']; ?> </a>
+                        <a class="nav-link text-light" href="?site=register"><?= $headerText['signup']; ?> </a>
                     </li>
                 </ul>
             </div>
