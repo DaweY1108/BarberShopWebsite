@@ -10,8 +10,10 @@
             <div class="row justify-content-center">
                 <div class="col-lg-6">
                     <div class="card card-bg">
-                        <div class="card-body">
+                        <div class="card-header">
                             <h2 class="text-center">Bejelentkezés</h2>
+                        </div>
+                        <div class="card-body"> 
                             <form action="login.php" class="needs-validation g-3" method="POST">
                                 <div class="form-group has-error">
                                     <label for="email">E-mail:</label>

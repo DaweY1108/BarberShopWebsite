@@ -5,13 +5,15 @@
 <!DOCTYPE html>
 <html>
 <body>
-    <div style="display: flex; align-items: center; justify-content: center; height: 35rem;">
+    <div style="display: flex; align-items: center; justify-content: center;">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-6">
                     <div class="card card-bg">
-                        <div class="card-body">
+                        <div class="card-header">
                             <h2 class="text-center">Regisztráció</h2>
+                        </div>
+                        <div class="card-body">
                             <form action="register.php" method="POST">
                                 <div class="form-group">
                                     <label for="username">Felhasználónév:</label>
@@ -24,6 +26,10 @@
                                 <div class="form-group">
                                     <label for="email">Email:</label>
                                     <input type="email" class="form-control" id="email" name="email" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="phone">Telefonszám:</label>
+                                    <input type="text" class="form-control" id="phone" name="phone" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="password">Jelszó:</label>
