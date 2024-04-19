@@ -44,8 +44,8 @@
     filter: drop-shadow( 4px 4px 3px rgba(0, 0, 0, .7));
 }
 
-.body-bg {
-    background-image: url('https://cdn.wallpapersafari.com/87/40/Lslm2z.jpg');
+body {
+    background-image: url("../assets/background.jpg");
     background-repeat: no-repeat;
     background-attachment: fixed;
 }

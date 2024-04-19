@@ -5,7 +5,7 @@
 <html>
   <head>
   </head>
-  <body class="body-bg">
+  <body>
     <div class="container text-dark text-center my-5">
       <hr style="border-width: 1px; border-color: black" class="w-50">
       <h1>- Üdvözöllek -</h1>

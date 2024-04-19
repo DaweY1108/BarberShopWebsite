@@ -4,7 +4,7 @@
 
 <!DOCTYPE html>
 <html>
-<body class="body-bg">
+<body>
     <div style="display: flex; align-items: center; justify-content: center; height: 35rem;">
         <div class="container">
             <div class="row justify-content-center">
