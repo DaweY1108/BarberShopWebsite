@@ -75,3 +75,8 @@ display: none;
 background-color: #dde0e3;
 cursor: pointer;
 }
+
+.png-shadow {
+    -webkit-filter: drop-shadow(5px 5px 5px #222);
+    filter: drop-shadow(5px 5px 5px #222);
+}
