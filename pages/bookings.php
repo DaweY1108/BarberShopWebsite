@@ -15,7 +15,7 @@
 
         <?= $fullDivider ?>
 
-        <div class='container mx-auto mt-5 col-8'>
+        <div class='container mx-auto mt-5'>
             <ul class="list-group">
                 <li class="list-group-item my-3 card-bg">
                     <div class="row">
