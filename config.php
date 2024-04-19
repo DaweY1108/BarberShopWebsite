@@ -8,5 +8,6 @@
         "barbers" => "Borbélyok",
         "services" => "Szolgáltatások",
         "about" => "Rólunk",
+        "reservation" => "Foglalás",
     );
 ?>
