@@ -9,9 +9,9 @@
     <div class="container text-dark text-center my-5">
       <hr style="border-width: 1px; border-color: black" class="w-50">
       <h1>- Üdvözöllek -</h1>
-      <h2>A PixelPlaza Weboldalán</h2>
+      <h2>A RazorRoom Weboldalán</h2>
       <hr style="border-width: 1px; border-color: black" class="w-50">
-      <h4 class="pt-5">Készülj fel a kalandra! Fedezd fel a pixelplaza világát!</h4>
+      <h4 class="pt-5">Hajvágásra van szükséged? Akár egy szakáll igazítás? Nálunk ezt mind megtalálod!</h4>
     </div>
     <?= $fullDivider; ?>
     <div class="container my-5">
