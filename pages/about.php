@@ -19,7 +19,7 @@
             <div class="row gy-4 gy-md-0 gx-xxl-5X">
               <div class="col-12 col-md-6">
                 <div class="d-flex">
-                  <div class="me-4 text-primary">
+                  <div class="me-4 text-dark">
                     <i class="fa-solid fa-gauge fa-2xl"></i>
                   </div>
                   <div>
@@ -30,7 +30,7 @@
               </div>
               <div class="col-12 col-md-6">
                 <div class="d-flex">
-                  <div class="me-4 text-primary">
+                  <div class="me-4 text-dark">
                     <i class="fa-solid fa-check fa-2xl"></i>
                   </div>
                   <div>

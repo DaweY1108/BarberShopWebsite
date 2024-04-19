@@ -12,7 +12,7 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link text-light" href="?site=about"><?= $menuItems['reservation']; ?> <i class="fa-regular fa-calendar fa-sm"></i></i></a>
+                        <a class="nav-link text-light" href="?site=reservation"><?= $menuItems['reservation']; ?> <i class="fa-regular fa-calendar fa-sm"></i></i></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-light" href="?site=about"><?= $menuItems['about']; ?> <i class="fa-solid fa-address-card fa-sm"></i></a>
