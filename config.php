@@ -1,7 +1,13 @@
 <?php
-    $headerText = array(
-        "title" => "Webshop",
-        "login" => "Bejelentkezés",
-        "signup" => "Regisztráció",
+    $title = "RazorRoom";
+    $menuItems = array(
+        "title" => "RazorRoom",
+        "login" => "Belépés",
+        "contact" => "Kapcsolat",
+        "gallery" => "Galéria",
+        "barbers" => "Borbélyok",
+        "services" => "Szolgáltatások",
+        "about" => "Rólunk",
+        "booking" => "Foglalás",
     );
 ?>
