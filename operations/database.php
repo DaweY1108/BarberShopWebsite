@@ -1,7 +1,8 @@
 <?php
     include('./dbconfig.php');
-    $conn = new mysqli($database['host'], $database['user'], $database['password'], $database['database']);
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
+    try {
+        $db = new PDO("mysql:host={$database['host']};dbname={$database['database']}", $database['username'], $database['password']);
+    } catch (PDOException $e) {
+        die('Connection failed: ' . $e->getMessage());
     }
 ?>
