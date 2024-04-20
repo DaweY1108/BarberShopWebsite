@@ -36,5 +36,6 @@
             </div>
         </nav>
         <?= $topDivider; ?>
+        <div style="margin-bottom: 20px">
     </body>
 </html>
