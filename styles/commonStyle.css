@@ -24,6 +24,9 @@
     .nav-item a::after, .nav-item a:hover::after {
         display: none;
     }
+    footer {
+        position: absolute;
+    }
 }
 
 .navbar {
