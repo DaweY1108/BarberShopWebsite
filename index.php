@@ -1,6 +1,7 @@
 <?php
     include('config.php');
     include('elements/dividers.php');
+    include('operations/database.php');
 ?>
 
 <!DOCTYPE html>
