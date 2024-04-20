@@ -4,6 +4,7 @@
 
 <!DOCTYPE html>
 <html style="position: relative; min-height: 100%;">
+    <div style="margin-top: 20px">
     <body style="padding-bottom: 10%;">
         <div style="position: absolute; bottom: 0; width: 100%;">
             <div style="margin: 0;">

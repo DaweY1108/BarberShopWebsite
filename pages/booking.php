@@ -25,7 +25,14 @@
                                         <option value="barber3">Barber 3</option>
                                     </select>
                                 </div>
-                                
+                                <div class="form-group">
+                                    <label for="barber">Válassz egy szolgáltatást:</label>
+                                    <select name="barber" id="barber" class="form-control">
+                                        <option value="barber1">Hajvágás</option>
+                                        <option value="barber2">Szakáll igazítás</option>
+                                        <option value="barber3">Hajvágás és szakáll igazítás</option>
+                                    </select>
+                                </div>
                                 <div class="form-group">
                                     <label for="date">Válassz egy dátumot:</label>
                                     <input type="datetime-local" name="date" id="date" class="form-control">
