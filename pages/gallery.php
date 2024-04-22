@@ -50,37 +50,33 @@
     <div class="card card-bg">
         <div class="card-body">
             <h2 class="card-title">Írd meg a véleményed</h2>
-            <form action="gallery.php" method="post" enctype="multipart/form-data">
-                <div class="d-flex justify-content-center">
-                    <div class="form-group w-100 text-left">
-                        <label for="name">Név:</label>
-                        <input type="text" class="form-control" id="name" name="name" required>
-                    </div>
-                </div>
-                <div class="d-flex justify-content-center">
-                    <div class="form-group w-100 text-left">
-                        <label for="email">Email:</label>
-                        <input type="email" class="form-control" id="email" name="email" required>
-                    </div>
-                </div>
-                <div class="d-flex justify-content-center">
-                    <div class="form-group w-100 text-left">
-                        <label for="opinion">Vélemény:</label>
-                        <textarea class="form-control" id="opinion" name="opinion" rows="3" required></textarea>
-                    </div>
-                </div>
-                <div class="d-flex justify-content-center">
-                    <div class="input-group custom-file-button w-100">
-                        <label class="input-group-text card-bg" for="inputGroupFile">Kép választása</label>
-                        <input type="file" class="form-control" id="inputGroupFile" name="image">
-                    </div>
-                </div>
-                <div class="form-check py-3">
-                    <input type="checkbox" class="form-check-input" id="checkbox">
-                    <label class="form-check-label" for="checkbox">Elfogadom a szabályzatot</label>
-                </div>
-                <button type="submit" class="btn btn-primary w-50">Beküldés</button>
-            </form>
+            <?php
+                if(isset($_SESSION['user'])) {
+                    echo "
+                        <form action='gallery.php' method='post' enctype='multipart/form-data'>
+                            <div class='d-flex justify-content-center'>
+                                <div class='form-group w-100 text-left'>
+                                    <label for='opinion'>Vélemény:</label>
+                                    <textarea class='form-control' id='opinion' name='opinion' rows='3'required></textarea>
+                                </div>
+                            </div>
+                            <div class='d-flex justify-content-center'>
+                                <div class='input-group custom-file-button w-100'>
+                                    <label class='input-group-text card-bg' for='inputGroupFile'>Kép választása</label>
+                                    <input type='file' class='form-control' id='inputGroupFile' name='image'>
+                                </div>
+                            </div>
+                            <div class='form-check py-3'>
+                                <input type='checkbox' class='form-check-input' id='checkbox'>
+                                <label class='form-check-label' for='checkbox'>Elfogadom a szabályzatot</label>
+                            </div>
+                            <button type='submit' class='btn btn-primary w-50'>Beküldés</button>
+                        </form>
+                    ";
+                } else {
+                    echo "Csak bejelentkezett felhasználó írhat véleményt!";
+                }
+            ?>
         </div>
     </div>
 </div>

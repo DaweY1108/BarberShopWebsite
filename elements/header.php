@@ -1,10 +1,16 @@
 <?php
-    include('operations/database.php');
     if (isset($_SESSION['user'])) {
-        $stmt = $conn->prepare("SELECT * FROM users WHERE id = :id");
-        $stmt->bindParam(':id', $_SESSION['user']);
-        $stmt->execute();
-        $userData = $stmt->fetch();
+        if ($userData[0]["role_id"] != 1) {
+            $stmt = $conn->prepare("SELECT name FROM roles WHERE id = :id");
+            $stmt->bindParam(':id', $userData[0]["role_id"]);
+            $stmt->execute();
+            $fetchedRole = $stmt->fetchAll();
+            $role = " - ".$fetchedRole[0]["name"];
+        } else {
+            $role = "";
+        }
+    } else {
+        $role = "";
     }
 ?>
 
@@ -12,7 +18,7 @@
 <html>
     <body class="body-bg">
         <nav class="navbar navbar-expand-lg navbar-light">
-            <a class="navbar-brand text-light" href="?site=home"><i class="fa-solid fa-scissors"></i> <?= $menuItems['title']; ?></a>
+            <a class="navbar-brand text-light" href="?site=home"><i class="fa-solid fa-scissors"></i> <?= $menuItems['title']; ?> <?= $role ?></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon text-light"><i class="fa-solid fa-bars text-center"></i></span>
             </button>
@@ -47,7 +53,7 @@
                     </li>
                     <li class="nav-item">
                         <div class="text-light nav-link">
-                            Bejelentkezve: <?php if (isset($_SESSION['user'])) { echo $userData['full_name']; } else { echo 'Vendég'; } ?>
+                            Bejelentkezve: <?php if (isset($_SESSION['user'])) { echo $userData[0]['full_name']; } else { echo 'Vendég'; } ?>
                         </div>
                     </li>
                 </ul>
