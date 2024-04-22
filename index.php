@@ -3,8 +3,12 @@
     include('operations/database.php');
     include('config.php');
     include('elements/dividers.php');
-    
-    
+    if (isset($_SESSION['user'])) {
+        $stmt = $conn->prepare("SELECT * FROM users WHERE id = :id");
+        $stmt->bindParam(':id', $_SESSION['user']);
+        $stmt->execute();
+        $userData = $stmt->fetchAll();
+    }
 ?>
 
 <!DOCTYPE html>
