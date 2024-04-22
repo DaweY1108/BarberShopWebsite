@@ -1,5 +1,5 @@
 <?php
-
+    session_start();
 ?>
 
 <!DOCTYPE html>
@@ -14,7 +14,7 @@
                             <h2 class="text-center">Regisztráció</h2>
                         </div>
                         <div class="card-body">
-                            <form action="register.php" method="POST">
+                            <form action="operations/op_register.php" method="POST">
                                 <div class="form-group">
                                     <label for="username">Felhasználónév:</label>
                                     <input type="text" class="form-control" id="username" name="username" required>

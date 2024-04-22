@@ -14,7 +14,7 @@
                             <h2 class="text-center">Bejelentkezés</h2>
                         </div>
                         <div class="card-body"> 
-                            <form action="login.php" class="needs-validation g-3" method="POST">
+                            <form action="operations/op_login.php" class="needs-validation g-3" method="POST">
                                 <div class="form-group has-error">
                                     <label for="email">E-mail:</label>
                                     <input type="email" class="form-control" id="email" name="email" required>
