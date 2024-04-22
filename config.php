@@ -3,6 +3,7 @@
     $menuItems = array(
         "title" => "RazorRoom",
         "login" => "Belépés",
+        "logout" => "Kilépés",
         "contact" => "Kapcsolat",
         "gallery" => "Galéria",
         "barbers" => "Borbélyok",

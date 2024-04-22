@@ -1,4 +1,5 @@
 <?php
+    
 ?>
 
 <!DOCTYPE html>
@@ -30,7 +31,13 @@
                         <a class="nav-link text-light" href="?site=contact"><?= $menuItems['contact']; ?> <i class="fa-solid fa-phone fa-sm"></i></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-light" href="?site=login"><?= $menuItems['login']; ?> <i class="fa-solid fa-right-to-bracket fa-sm"></i></a>
+                       <?php
+                            if (isset($_SESSION['user'])) {
+                                echo '<a class="nav-link text-light" href="operations/op_logout.php">'.$menuItems['logout'].' <i class="fa-solid fa-sign-out-alt fa-sm"></i></a>';
+                            } else {
+                                echo '<a class="nav-link text-light" href="?site=login">'.$menuItems['login'].' <i class="fa-solid fa-sign-in-alt fa-sm"></i></a>';
+                            }
+                        ?>
                     </li>
                 </ul>
             </div>
