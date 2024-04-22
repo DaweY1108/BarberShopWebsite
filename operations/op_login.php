@@ -1,5 +1,5 @@
 <?php
-    session_start();
+session_start();
     include('database.php');
     if (isset($_POST['email']) && isset($_POST['password'])) {
         $email = $_POST['email'];
@@ -11,7 +11,7 @@
         $stmt->execute();
         $user = $stmt->fetch();
         if ($user) {
-            $_SESSION['user'] = $user;
+            $_SESSION['user'] = $user['id'];
             header('Location: ../index.php?site=home');
         } else {
             header('Location: ../index.php?site=login');
