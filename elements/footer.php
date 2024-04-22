@@ -12,7 +12,7 @@
             </div>
             <footer class="footer-background" style="width: 100%; height: 60px;">
                 <div class="text-light py-3 text-center">
-                    <?= $footerText; ?>  
+                    <?= $footerText; ?>
                 </div>
             </footer>
         </div>

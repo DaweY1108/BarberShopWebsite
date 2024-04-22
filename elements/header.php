@@ -1,5 +1,11 @@
 <?php
-    
+    include('operations/database.php');
+    if (isset($_SESSION['user'])) {
+        $stmt = $conn->prepare("SELECT * FROM users WHERE id = :id");
+        $stmt->bindParam(':id', $_SESSION['user']);
+        $stmt->execute();
+        $userData = $stmt->fetch();
+    }
 ?>
 
 <!DOCTYPE html>
@@ -38,6 +44,11 @@
                                 echo '<a class="nav-link text-light" href="?site=login">'.$menuItems['login'].' <i class="fa-solid fa-sign-in-alt fa-sm"></i></a>';
                             }
                         ?>
+                    </li>
+                    <li class="nav-item">
+                        <div class="text-light nav-link">
+                            
+                        </div>
                     </li>
                 </ul>
             </div>
