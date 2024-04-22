@@ -1,7 +1,7 @@
 <?php
+    session_start();
     include('config.php');
     include('elements/dividers.php');
-    include('operations/database.php');
 ?>
 
 <!DOCTYPE html>
