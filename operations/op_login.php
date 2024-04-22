@@ -1,5 +1,5 @@
 <?php
-    session_start();
+session_start();
     include('database.php');
     if (isset($_POST['email']) && isset($_POST['password'])) {
         $email = $_POST['email'];

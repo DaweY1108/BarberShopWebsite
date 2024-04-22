@@ -47,7 +47,7 @@
                     </li>
                     <li class="nav-item">
                         <div class="text-light nav-link">
-                            
+                            Bejelentkezve: <?php if (isset($_SESSION['user'])) { echo $userData['full_name']; } else { echo 'Vendég'; } ?>
                         </div>
                     </li>
                 </ul>
