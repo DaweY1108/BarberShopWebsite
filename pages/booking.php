@@ -1,4 +1,14 @@
 <?php
+    include('operations/database.php');
+    $stmt = $conn->prepare("SELECT * FROM services");
+    $stmt->execute();
+    $serviceCount = $stmt->rowCount();
+    $fetchedServices = $stmt->fetchAll();
+
+    $stmt = $conn->prepare("SELECT full_name, barbers.id AS barberID FROM users INNER JOIN barbers ON users.id = barbers.user_id");
+    $stmt->execute();
+    $barberCount = $stmt->rowCount();
+    $fetchedBarbers = $stmt->fetchAll();
 ?>
 
 <!DOCTYPE html>
@@ -16,21 +26,29 @@
                             <h2 class="text-center">Foglalj időpontot</h2>
                         </div>
                         <div class="card-body"> 
-                            <form action="process_booking.php" method="POST">
+                            <form action="operations/op_booking.php" method="POST">
                                 <div class="form-group">
                                     <label for="barber">Válassz egy borbélyt:</label>
                                     <select name="barber" id="barber" class="form-control">
-                                        <option value="barber1">Barber 1</option>
-                                        <option value="barber2">Barber 2</option>
-                                        <option value="barber3">Barber 3</option>
+                                        <?php
+                                            for ($i = 0; $i < $barberCount; $i++) {
+                                                $name = $fetchedBarbers[$i]["full_name"];
+                                                $id = $fetchedBarbers[$i]["barberID"];
+                                                echo "<option value='$id'>$name</option>";
+                                            }
+                                        ?>
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label for="barber">Válassz egy szolgáltatást:</label>
-                                    <select name="barber" id="barber" class="form-control">
-                                        <option value="barber1">Hajvágás</option>
-                                        <option value="barber2">Szakáll igazítás</option>
-                                        <option value="barber3">Hajvágás és szakáll igazítás</option>
+                                    <label for="service">Válassz egy szolgáltatást:</label>
+                                    <select name="service" id="service" class="form-control">
+                                        <?php
+                                            for ($i = 0; $i < $serviceCount; $i++) {
+                                                $name = $fetchedServices[$i]["name"];
+                                                $id = $fetchedServices[$i]["id"];
+                                                echo "<option value='$id'>$name</option>";
+                                            }
+                                        ?>
                                     </select>
                                 </div>
                                 <div class="form-group">
@@ -40,19 +58,21 @@
                                 
                                 <div class="form-group">
                                     <label for="name">Név:</label>
-                                    <input type="text" name="name" id="name" class="form-control">
+                                    <input type="text" name="name" id="name" value="<?php if (isset($_SESSION['user'])) echo $userData[0]['full_name']; ?>" class="form-control">
                                 </div>
                                 
                                 <div class="form-group">
                                     <label for="email">Email:</label>
-                                    <input type="email" name="email" id="email" class="form-control">
+                                    <input type="email" name="email" id="email" value="<?php if (isset($_SESSION['user'])) echo $userData[0]['email']; ?>" class="form-control">
                                 </div>
                                 
                                 <div class="form-group">
                                     <label for="phone">Telefonszám:</label>
-                                    <input type="tel" name="phone" id="phone" class="form-control">
+                                    <input type="tel" name="phone" id="phone" value="<?php if (isset($_SESSION['user'])) echo $userData[0]['phone']; ?>" class="form-control">
                                 </div>   
-                                <input type="submit" value="Foglalok" class="btn btn-primary">
+                                <div class="form-group text-center">
+                                    <input type="submit" value="Foglalok" class="btn btn-dark w-75">
+                                </div>
                             </form>
                         </div>
                     </div>
