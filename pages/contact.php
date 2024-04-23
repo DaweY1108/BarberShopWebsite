@@ -32,19 +32,19 @@
                 <div class="col-12 col-lg-6 col-xl-7">
                 <div class="card card-bg">
                         <div class="card-body">
-                            <form action="login.php" class="needs-validation g-3" method="POST">
+                            <form action="operations/op_contact.php" class="needs-validation g-3" method="POST">
                                 <div class="form-group has-error">
                                     <label for="email">E-mail:</label>
-                                    <input type="email" class="form-control" id="email" name="email" required>
+                                    <input type="email" class="form-control" value="<?php if (isset($_SESSION['user'])) echo $userData[0]['email']; ?>" id="email" name="email" required>
                                     <span></span>
                                 </div>
                                 <div class="form-group">
                                     <label for="name">Név:</label>
-                                    <input type="text" class="form-control" id="name" name="name" required>
+                                    <input type="text" class="form-control" value="<?php if (isset($_SESSION['user'])) echo $userData[0]['full_name']; ?>" id="name" name="name" required>
                                 </div>
                                 <div class="form-group">
-                                    <label for="opinion">Üzenet:</label>
-                                    <textarea class="form-control" id="opinion" name="opinion" rows="3" required></textarea>
+                                    <label for="message">Üzenet:</label>
+                                    <textarea class="form-control" id="message" name="message" rows="3" required></textarea>
                                 </div>
                                 <button type="submit" class="btn btn-dark w-100">Küldés</button>
                             </form>
