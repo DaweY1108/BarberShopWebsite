@@ -10,6 +10,7 @@
         "services" => "Szolgáltatások",
         "about" => "Rólunk",
         "booking" => "Foglalás",
+        "bookings" => "Foglalások"
     );
     $database = array (
         'host' => 'api.uniassist.hu',

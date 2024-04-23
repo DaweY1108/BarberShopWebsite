@@ -16,7 +16,7 @@
         $stmt->bindParam(':email', $email);
         $stmt->bindParam(':phone', $phone);
         $stmt->execute();
-        header('Location: ../index.php?site=home');
+        header('Location: ../index.php?site=bookSuccess');
     } else {
         header('Location: ../index.php?site=booking');
     }

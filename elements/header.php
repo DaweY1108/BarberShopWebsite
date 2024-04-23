@@ -25,10 +25,28 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link text-light" href="?site=booking"><?= $menuItems['booking']; ?> <i class="fa-regular fa-calendar fa-sm"></i></i></a>
+                        <?php
+                            if (isset($_SESSION['user'])) {
+                                if ($userData[0]['role_id'] == 2) {
+                                    echo '<a class="nav-link text-light" href="?site=myBookins">'. $menuItems['bookings'].' <i class="fa-regular fa-calendar fa-sm"></i></i></a>';
+                                } else {
+                                    echo '<a class="nav-link text-light" href="?site=booking">'. $menuItems['booking'].' <i class="fa-regular fa-calendar fa-sm"></i></i></a>';
+                                }
+                            } else {
+                                echo '<a class="nav-link text-light" href="?site=booking">'. $menuItems['booking'].' <i class="fa-regular fa-calendar fa-sm"></i></i></a>';
+                            }
+                        ?>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-light" href="?site=about"><?= $menuItems['about']; ?> <i class="fa-solid fa-address-card fa-sm"></i></a>
+                        <?php
+                            if (isset($_SESSION['user'])) {
+                                if ($userData[0]['role_id'] == 1) {
+                                    echo '<a class="nav-link text-light" href="?site=users">'. $menuItems['about'].' <i class="fa-solid fa-users fa-sm"></i></i></a>';
+                                }
+                            } else {
+                                echo '<a class="nav-link text-light" href="?site=about">'. $menuItems['about'].' <i class="fa-solid fa-users fa-sm"></i></i></a>';
+                            }
+                        ?>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-light" href="?site=services"><?= $menuItems['services']; ?> <i class="fa-brands fa-servicestack fa-sm"></i></i></a>
