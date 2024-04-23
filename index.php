@@ -22,7 +22,7 @@
     <link rel="stylesheet" href="styles/commonStyle.css" type="text/css"/>
     <link rel="stylesheet" href="styles/customScrollBar.css" type="text/css"/>
 </head>
-    <body>
+    <body> 
         <div>
             <?php
                 include('elements/header.php');
@@ -44,9 +44,11 @@
                 include('elements/footer.php');
             ?>
         </div>
-            
+        
         <script src="https://kit.fontawesome.com/eb58c719d4.js" crossorigin="anonymous"></script>
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="scripts/main.js"></script>
+        
     </body>
 </html>

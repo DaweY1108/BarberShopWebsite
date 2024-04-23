@@ -1,4 +1,14 @@
 <?php
+    include('operations/database.php');
+    if (isset($_SESSION['user'])) {
+        if ($userData[0]['role_id'] == 2) {
+            
+        }
+    }
+    $stmt = $conn->prepare("SELECT bookings.name AS userFullName, phone, email, services.name AS serviceName, date FROM (bookings INNER JOIN barbers ON bookings.barber_id = barbers.id) INNER JOIN services ON bookings.service_id = services.id WHERE bookings.barber_id = 1");
+    $stmt->execute();
+    $dataCount = $stmt->rowCount();
+    $fetchedData = $stmt->fetchAll(); 
 ?>
 
 <!DOCTYPE html>

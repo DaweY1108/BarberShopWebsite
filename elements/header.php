@@ -16,7 +16,7 @@
 
 <!DOCTYPE html>
 <html>
-    <body class="body-bg">
+    <body>
         <nav class="navbar navbar-expand-lg navbar-light">
             <a class="navbar-brand text-light" href="?site=home"><i class="fa-solid fa-scissors"></i> <?= $menuItems['title']; ?> <?= $role ?></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
