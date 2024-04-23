@@ -1,4 +1,10 @@
 <?php
+    include('operations/database.php');
+    $stmt = $conn->prepare("SELECT gallery.id AS photoID, full_name, opinion, photo FROM gallery INNER JOIN users ON gallery.user_id = users.id");
+    $stmt->execute();
+    $dataCount = $stmt->rowCount();
+    $fetchedData = $stmt->fetchAll();  
+    
 ?>
 
 <!DOCTYPE html>
@@ -16,32 +22,29 @@
 <?= $fullDivider ?>
 
 <div class="container">
-    <div class="row card-bg py-3 border my-3">
-        <div class="col-md-4 py-2 bg-light shadow mx-2">
-            <div class="d-flex flex-column justify-content-md-start justify-content-center align-items-center">
-                <img src="https://cc-prod.scene7.com/is/image/CCProdAuthor/adobe-firefly-marquee-text-to-image-0-mobile-600x600?$pjpeg$&jpegSize=100&wid=600" alt="" class="img-fluid border border-dark my-2 shadow"/>
-                <h6 class="card-title text-center py-3">Varga Dávid Zsolt Kecske</h6>
+    <?php
+        for ($i = 0; $i < $dataCount; $i++) {
+            $name = $fetchedData[$i]["full_name"];
+            $opinion = $fetchedData[$i]["opinion"];
+            $photoID = $fetchedData[$i]["photoID"];
+            echo "
+            <div class='row card-bg py-3 border my-3'>
+                <div class='col-md-4 py-2 bg-light shadow mx-2'>
+                    <div class='d-flex flex-column justify-content-md-start justify-content-center align-items-center'>
+                        <img src='operations/op_getImage.php?id=$photoID' alt='' class='img-fluid border border-dark my-2 shadow'/>
+                        <h6 class='card-title text-center py-3'>$name</h6>
+                    </div>
+                </div>
+                <div class='col-md-7 mx-4'>
+                    <div class='media-body'>
+                        <h5 class='card-text text-justify px-2 py-3'>$opinion</h5>
+                    </div>
+                </div>
             </div>
-        </div>
-        <div class="col-md-7 mx-4">
-            <div class="media-body">
-                <h5 class="card-text text-justify px-2 py-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</h5>
-            </div>
-        </div>
-    </div>
-    <div class="row card-bg py-3 border my-3">
-        <div class="col-md-4 py-2 bg-light shadow mx-2">
-            <div class="d-flex flex-column justify-content-md-start justify-content-center align-items-center">
-                <img src="https://cc-prod.scene7.com/is/image/CCProdAuthor/adobe-firefly-marquee-text-to-image-0-mobile-600x600?$pjpeg$&jpegSize=100&wid=600" alt="" class="img-fluid border border-dark my-2 shadow"/>
-                <h6 class="card-title text-center py-3">Varga Dávid Zsolt Kecske</h6>
-            </div>
-        </div>
-        <div class="col-md-7 mx-4">
-            <div class="media-body">
-                <h5 class="card-text text-justify px-2 py-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</h5>
-            </div>
-        </div>
-    </div>
+            ";
+        }
+            
+    ?>
 </div>
 
 <?= $fullDivider ?>
@@ -53,7 +56,7 @@
             <?php
                 if(isset($_SESSION['user'])) {
                     echo "
-                        <form action='gallery.php' method='post' enctype='multipart/form-data'>
+                        <form action='operations/op_gallery.php' method='post' enctype='multipart/form-data'>
                             <div class='d-flex justify-content-center'>
                                 <div class='form-group w-100 text-left'>
                                     <label for='opinion'>Vélemény:</label>
@@ -62,15 +65,11 @@
                             </div>
                             <div class='d-flex justify-content-center'>
                                 <div class='input-group custom-file-button w-100'>
-                                    <label class='input-group-text card-bg' for='inputGroupFile'>Kép választása</label>
-                                    <input type='file' class='form-control' id='inputGroupFile' name='image'>
+                                    <label class='input-group-text card-bg' for='image'>Kép választása</label>
+                                    <input type='file' class='form-control' id='image' name='image'>
                                 </div>
                             </div>
-                            <div class='form-check py-3'>
-                                <input type='checkbox' class='form-check-input' id='checkbox'>
-                                <label class='form-check-label' for='checkbox'>Elfogadom a szabályzatot</label>
-                            </div>
-                            <button type='submit' class='btn btn-primary w-50'>Beküldés</button>
+                            <button type='submit' class='btn btn-primary w-50 mt-3'>Beküldés</button>
                         </form>
                     ";
                 } else {
