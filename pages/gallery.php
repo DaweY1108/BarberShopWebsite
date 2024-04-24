@@ -19,7 +19,6 @@
     </div>
 </div>
 
-<?= $fullDivider ?>
 
 <div class="container">
     <?php

@@ -16,7 +16,7 @@
 
 <!DOCTYPE html>
 <html>
-    <body class="body-bg">
+    <body>
         <nav class="navbar navbar-expand-lg navbar-light">
             <a class="navbar-brand text-light" href="?site=home"><i class="fa-solid fa-scissors"></i> <?= $menuItems['title']; ?> <?= $role ?></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -25,10 +25,18 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link text-light" href="?site=booking"><?= $menuItems['booking']; ?> <i class="fa-regular fa-calendar fa-sm"></i></i></a>
+                        <?php if (isset($_SESSION['user'])): ?>
+                            <?php if ($userData[0]['role_id'] != 1): ?>
+                                <a class="nav-link text-light" href="?site=myBookings"><?= $menuItems['bookings']; ?> <i class="fa-regular fa-calendar fa-sm"></i></i></a>
+                            <?php else: ?>
+                                <a class="nav-link text-light" href="?site=booking"><?= $menuItems['booking']; ?> <i class="fa-regular fa-calendar fa-sm"></i></i></a>
+                            <?php endif; ?>
+                        <?php else: ?>
+                            <a class="nav-link text-light" href="?site=booking"><?= $menuItems['booking']; ?> <i class="fa-regular fa-calendar fa-sm"></i></i></a>
+                        <?php endif; ?>    
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-light" href="?site=about"><?= $menuItems['about']; ?> <i class="fa-solid fa-address-card fa-sm"></i></a>
+                        <a class="nav-link text-light" href="?site=about"><?= $menuItems['about'] ?> <i class="fa-solid fa-users fa-sm"></i></i></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-light" href="?site=services"><?= $menuItems['services']; ?> <i class="fa-brands fa-servicestack fa-sm"></i></i></a>
@@ -40,16 +48,35 @@
                         <a class="nav-link text-light" href="?site=gallery"><?= $menuItems['gallery']; ?> <i class="fa-solid fa-image fa-sm"></i></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-light" href="?site=contact"><?= $menuItems['contact']; ?> <i class="fa-solid fa-phone fa-sm"></i></a>
+                        <?php if (isset($_SESSION['user'])): ?>
+                            <?php if ($userData[0]['role_id'] == 3): ?>
+                                <a class="nav-link text-light" href="?site=logs"><?= $menuItems['logs']; ?> <i class="fa-solid fa-file-alt fa-sm"></i></a>
+                            <?php endif; ?>
+                        <?php endif; ?>
                     </li>
                     <li class="nav-item">
-                       <?php
-                            if (isset($_SESSION['user'])) {
-                                echo '<a class="nav-link text-light" href="operations/op_logout.php">'.$menuItems['logout'].' <i class="fa-solid fa-sign-out-alt fa-sm"></i></a>';
-                            } else {
-                                echo '<a class="nav-link text-light" href="?site=login">'.$menuItems['login'].' <i class="fa-solid fa-sign-in-alt fa-sm"></i></a>';
-                            }
-                        ?>
+                        <?php if (isset($_SESSION['user'])): ?>
+                            <?php if ($userData[0]['role_id'] == 3): ?>
+                                <a class="nav-link text-light" href="?site=users"><?= $menuItems['users']; ?> <i class="fa-solid fa-users fa-sm"></i></a>
+                            <?php endif; ?>
+                        <?php endif; ?>
+                    <li class="nav-item">
+                        <?php if (isset($_SESSION['user'])): ?>
+                            <?php if ($userData[0]['role_id'] == 3): ?>
+                                <a class="nav-link text-light" href="?site=contacts"><?= $menuItems['contacts']; ?> <i class="fa-solid fa-message fa-sm"></i></a>
+                            <?php else: ?>
+                                <a class="nav-link text-light" href="?site=contact"><?= $menuItems['contact']; ?> <i class="fa-solid fa-phone fa-sm"></i></a>
+                            <?php endif; ?>
+                        <?php else: ?>
+                            <a class="nav-link text-light" href="?site=contact"><?= $menuItems['contact']; ?> <i class="fa-solid fa-phone fa-sm"></i></a>
+                        <?php endif; ?>
+                    </li>
+                    <li class="nav-item">
+                        <?php if (isset($_SESSION['user'])): ?>
+                            <a class="nav-link text-light" href="operations/op_logout.php"><?=$menuItems['logout']?> <i class="fa-solid fa-sign-out-alt fa-sm"></i></a>
+                        <?php else: ?>
+                            <a class="nav-link text-light" href="?site=login"><?=$menuItems['login']?> <i class="fa-solid fa-sign-in-alt fa-sm"></i></a>
+                        <?php endif; ?>
                     </li>
                     <li class="nav-item">
                         <div class="text-light nav-link">
