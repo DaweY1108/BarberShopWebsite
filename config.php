@@ -5,12 +5,15 @@
         "login" => "Belépés",
         "logout" => "Kilépés",
         "contact" => "Kapcsolat",
+        "contacts" => "Üzenetek",
         "gallery" => "Galéria",
         "barbers" => "Borbélyok",
         "services" => "Szolgáltatások",
         "about" => "Rólunk",
         "booking" => "Foglalás",
-        "bookings" => "Foglalások"
+        "bookings" => "Foglalások",
+        "users" => "Felhasználók",
+        "logs" => "Logok"
     );
     $database = array (
         'host' => 'api.uniassist.hu',
