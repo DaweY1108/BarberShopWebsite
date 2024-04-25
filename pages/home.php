@@ -6,9 +6,6 @@
   <head>
   </head>
   <body>
-    <video autoplay loop muted class="video-bg">
-          <source src="assets/videos/video.mp4" type="video/mp4">
-    </video>
     <div class="container text-light p-3 text-center my-5 border-2">  
       <hr style="border-width: 1px; border-color: black" class="w-50">
       <img src="assets/images/logo-dark.svg" alt="logo" class="img-fluid" style="">

@@ -32,9 +32,6 @@
     footer {
         position: absolute;
     }
-    .video-bg {
-        display: none;
-    }
 }
 
 .navbar {
@@ -53,16 +50,6 @@
 .shadow {
     -webkit-filter: drop-shadow( 4px 4px 3px rgba(0, 0, 0, .7));
     filter: drop-shadow( 4px 4px 3px rgba(0, 0, 0, .7));
-}
-
-.video-bg {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 49%;
-    object-fit: cover;
-    z-index: -1;
 }
 
 body {
