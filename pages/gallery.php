@@ -20,31 +20,7 @@
 </div>
 
 
-<div class="container">
-    <?php
-        for ($i = 0; $i < $dataCount; $i++) {
-            $name = $fetchedData[$i]["full_name"];
-            $opinion = $fetchedData[$i]["opinion"];
-            $photoID = $fetchedData[$i]["photoID"];
-            echo "
-            <div class='row card-bg py-3 border my-3'>
-                <div class='col-md-4 py-2 bg-light shadow mx-2'>
-                    <div class='d-flex flex-column justify-content-md-start justify-content-center align-items-center'>
-                        <img src='operations/op_getImage.php?id=$photoID' alt='' class='img-fluid border border-dark my-2 shadow'/>
-                        <h6 class='card-title text-center py-3'>$name</h6>
-                    </div>
-                </div>
-                <div class='col-md-7 mx-4'>
-                    <div class='media-body'>
-                        <h5 class='card-text text-justify px-2 py-3'>$opinion</h5>
-                    </div>
-                </div>
-            </div>
-            ";
-        }
-            
-    ?>
-</div>
+<div id='gallery' class="container"></div>
 
 <?= $fullDivider ?>
 
@@ -78,4 +54,10 @@
         </div>
     </div>
 </div>
+
+<script>
+    window.onload = function() {
+        get_gallery('gallery');
+    };
+</script>
 </body>
