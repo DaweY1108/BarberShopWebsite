@@ -1,12 +1,3 @@
-<?php
-    include('operations/database.php');
-    $stmt = $conn->prepare("SELECT gallery.id AS photoID, full_name, opinion, photo FROM gallery INNER JOIN users ON gallery.user_id = users.id");
-    $stmt->execute();
-    $dataCount = $stmt->rowCount();
-    $fetchedData = $stmt->fetchAll();  
-    
-?>
-
 <!DOCTYPE html>
 <body>
 

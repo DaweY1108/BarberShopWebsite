@@ -1,3 +1,8 @@
+@font-face {
+    font-family: 'Aldrich';
+    src: url('../assets/fonts/Aldrich-Regular.ttf');
+}
+
 .nav-item a {
     position: relative;
     text-decoration: none;
@@ -48,9 +53,10 @@
 }
 
 body {
-    background-image: url("../assets/background.jpg");
+    background-image: url("../assets/images/background.jpg");
     background-repeat: no-repeat;
     background-attachment: fixed;
+    font-family: "Aldrich", sans-serif; 
 }
 
 .card-bg {

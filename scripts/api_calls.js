@@ -1,3 +1,19 @@
+/*
+    A scriptben található függvények segítségével a weboldal adatai dinamikusan kerülnek feltöltésre.
+    Az adatokat az api mappában található php fájlok szolgáltatják.
+*/
+
+/*
+    A függvények a fetch API segítségével kérnek le adatokat a szerverről.
+    A fetch API segítségével a szerverrel való kommunikáció aszinkron módon történik.
+    A fetch API egy Promise-t ad vissza, amely tartalmazza a választ a szerverről.
+    A fetch API-t a then() és catch() metódusok segítségével lehet kezelni.
+*/
+
+
+/*
+    borbélyok adatainak lekérése, majd html kód felépítése
+*/
 async function get_barbers(elementId) {
     fetch('api/get_barbers.php', {
         method: 'POST',
@@ -8,7 +24,7 @@ async function get_barbers(elementId) {
     .then(response => response.json())
     .then(fetchedData => {
         for (let i = 0; i < fetchedData.length; i++) {
-            let imageLoc = "assets/barbers/" + fetchedData[i].id + ".jpg";
+            let imageLoc = "assets/images/barbers/" + fetchedData[i].id + ".jpg";
             let name = fetchedData[i].full_name;
             let description = fetchedData[i].description;
             let skills = fetchedData[i].skills;
@@ -45,6 +61,10 @@ async function get_barbers(elementId) {
     })
     .catch(error => console.error('Error:', error));
 }
+
+/*
+    Szolgáltatások adatainak lekérése, majd html kód felépítése
+*/
 
 async function get_services(elementId) {
     fetch('api/get_services.php', {
