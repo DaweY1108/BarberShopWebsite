@@ -79,6 +79,10 @@ async function get_services(elementId) {
     .catch(error => console.error('Error:', error));
 }
 
+/*
+    Galéria adatainak lekérése, majd html kód felépítése
+*/
+
 async function get_gallery(elementId) {
     fetch('api/get_gallery.php', {
         method: 'POST',
