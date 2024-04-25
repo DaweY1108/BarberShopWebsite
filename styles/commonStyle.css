@@ -1,3 +1,8 @@
+@font-face {
+    font-family: 'Aldrich';
+    src: url('../assets/fonts/Aldrich-Regular.ttf');
+}
+
 .nav-item a {
     position: relative;
     text-decoration: none;
@@ -27,6 +32,9 @@
     footer {
         position: absolute;
     }
+    .video-bg {
+        display: none;
+    }
 }
 
 .navbar {
@@ -47,10 +55,21 @@
     filter: drop-shadow( 4px 4px 3px rgba(0, 0, 0, .7));
 }
 
+.video-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 49%;
+    object-fit: cover;
+    z-index: -1;
+}
+
 body {
-    background-image: url("../assets/background.jpg");
+    background-image: url("../assets/images/background.jpg");
     background-repeat: no-repeat;
     background-attachment: fixed;
+    font-family: "Aldrich", sans-serif; 
 }
 
 .card-bg {

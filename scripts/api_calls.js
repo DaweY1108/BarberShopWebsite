@@ -24,7 +24,7 @@ async function get_barbers(elementId) {
     .then(response => response.json())
     .then(fetchedData => {
         for (let i = 0; i < fetchedData.length; i++) {
-            let imageLoc = "assets/barbers/" + fetchedData[i].id + ".jpg";
+            let imageLoc = "assets/images/barbers/" + fetchedData[i].id + ".jpg";
             let name = fetchedData[i].full_name;
             let description = fetchedData[i].description;
             let skills = fetchedData[i].skills;
