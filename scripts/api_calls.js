@@ -136,4 +136,3 @@ async function get_gallery(elementId) {
     })
     .catch(error => console.error('Error:', error));
 }
-
