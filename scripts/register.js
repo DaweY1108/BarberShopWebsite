@@ -1,4 +1,26 @@
-function validateRegister() {
+document.getElementById('registerForm').addEventListener('submit', function(event) {
+    event.preventDefault(); 
+
+    validateRegister().then(isValid => {
+        if (isValid) {
+            event.target.submit(); 
+        }
+    });
+});
+
+async function isUsernameTaken(username) {
+    const response = await fetch('api/get_users.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+    });
+    const data = await response.json();
+    const usernames = data.map(user => user.username);
+    return usernames.includes(username);
+}
+
+async function validateRegister() {
     var username = document.getElementById("username");
     var fullname = document.getElementById("fullname");
     var email = document.getElementById("email");
@@ -13,6 +35,13 @@ function validateRegister() {
     } else {
         document.getElementById("usernameError").innerHTML = "";
         username.style.border = "1px solid green";
+    }
+
+    const usernameIsTaken = await isUsernameTaken(username.value);
+    if (usernameIsTaken) {
+        document.getElementById("usernameError").innerHTML = "This username is already taken!";
+        username.style.border = "1px solid red";
+        return false;
     }
 
 
@@ -74,5 +103,6 @@ function validateRegister() {
         password.style.border = "1px solid green";
         passwordAgain.style.border = "1px solid green";
     }
+
     return false;
 }

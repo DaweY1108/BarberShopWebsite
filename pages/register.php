@@ -13,7 +13,7 @@
                             <h2 class="text-center">Regisztráció</h2>
                         </div>
                         <div class="card-body">
-                            <form name="registerForm" action="operations/op_register.php" method="POST" onsubmit="return validateRegister()">
+                        <form name="registerForm" id="registerForm" action="operations/op_register.php" method="POST">
                                 <div class="form-group">
                                     <label for="username">Felhasználónév:</label>
                                     <input type="text" class="form-control" id="username" name="username">
