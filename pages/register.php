@@ -16,7 +16,7 @@
                         <form name="registerForm" id="registerForm" action="operations/op_register.php" method="POST">
                                 <div class="form-group">
                                     <label for="username">Felhasználónév:</label>
-                                    <input type="text" class="form-control" id="username" name="username">
+                                    <input type="text" class="form-control" id="username" name="username" onchange="validateRegister()">
                                     <small id="usernameError" class="text-danger"></small>
                                 </div>
                                 <div class="form-group">
