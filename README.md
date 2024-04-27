@@ -7,3 +7,8 @@ The RazorRoom website is designed to showcase our barbershop services, provide i
 
 ## Quote
 I'm a full-stack developer, so I have schizophrenia, and I have two personalities, the first does the backend and the other does the frontend.
+
+## Todo
+- Register checking with javascript
+- Login checking - || -
+- Other forms checking - || -
