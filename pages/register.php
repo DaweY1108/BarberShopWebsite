@@ -16,32 +16,32 @@
                         <form name="registerForm" id="registerForm" action="operations/op_register.php" method="POST">
                                 <div class="form-group">
                                     <label for="username">Felhasználónév:</label>
-                                    <input type="text" class="form-control" id="username" name="username" onchange="validateRegister()">
+                                    <input type="text" class="form-control" id="username" name="username" onchange="validateUserName()">
                                     <small id="usernameError" class="text-danger"></small>
                                 </div>
                                 <div class="form-group">
                                     <label for="password">Teljes név:</label>
-                                    <input type="text" class="form-control" id="fullname" name="fullname">
+                                    <input type="text" class="form-control" id="fullname" name="fullname" onchange="validateFullName()">
                                     <small id="fullnameError" class="text-danger"></small>
                                 </div>
                                 <div class="form-group">
                                     <label for="email">Email:</label>
-                                    <input type="email" class="form-control" id="email" name="email">
+                                    <input type="email" class="form-control" id="email" name="email" onchange="validateEmail()">
                                     <small id="emailError" class="text-danger"></small>
                                 </div>
                                 <div class="form-group">
                                     <label for="phone">Telefonszám:</label>
-                                    <input type="text" class="form-control" id="phone" name="phone">
+                                    <input type="text" class="form-control" id="phone" name="phone" onchange="validatePhone()">
                                     <small id="phoneError" class="text-danger"></small>
                                 </div>
                                 <div class="form-group">
                                     <label for="password">Jelszó:</label>
-                                    <input type="password" class="form-control" id="password" name="password">
+                                    <input type="password" class="form-control" id="password" name="password" onchange="validatePassword()">
                                     <small id="passwordError" class="text-danger"></small>
                                 </div>
                                 <div class="form-group">
                                     <label for="password-again">Jelszó újra:</label>
-                                    <input type="password" class="form-control" id="password-again" name="password-again">
+                                    <input type="password" class="form-control" id="password-again" name="password-again" onchange="validatePassword()">
                                     <small id="passwordAgainError" class="text-danger"></small>
                                 </div>
                                 <h6 class="text-center">Már van fiókod? <a href="?site=login">Jelentkezz be!</a></h6>
