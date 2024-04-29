@@ -1,5 +1,7 @@
-<?php
-
+<?php 
+    if (isset($_SESSION['user'])) {
+        echo '<script> location.replace("index.php?site=home"); </script>';
+    }
 ?>
 
 <!DOCTYPE html>
