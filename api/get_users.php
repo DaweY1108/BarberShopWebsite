@@ -8,15 +8,12 @@
         // Get as an object
         $json_obj = json_decode($json_str);
 
-        $username = $json_obj->username;
-        $email = $json_obj->email;
-
-        if (isset($username) && !empty($username)) {
+        if (isset($json_obj->username) && !empty($json_obj->username)) {
             $stmt = $conn->prepare("SELECT * FROM users WHERE username = :username");
-            $stmt->bindParam(':username', $username);
-        } else if (isset($email) && !empty($email)) {
+            $stmt->bindParam(':username', $json_obj->username);
+        } else if (isset($json_obj->email) && !empty($json_obj->email)) {
             $stmt = $conn->prepare("SELECT * FROM users WHERE email = :email");
-            $stmt->bindParam(':email', $email);
+            $stmt->bindParam(':email', $json_obj->email);
         } else {
             $stmt = $conn->prepare("SELECT * FROM users");
         }
