@@ -69,6 +69,9 @@ async function validateLogin() {
     var isEmailValid = await validateEmail();
     var isPasswordValid = await validatePassword();
     if (isEmailValid && isPasswordValid) {
+        var user = await getUserByEmail(document.getElementById("email").value);
+        var logMessage = user[0].username + " bejelentkezett a rendszerbe!";
+        await sendLog(logMessage);
         return true;
     } else {
         return false;
