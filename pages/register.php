@@ -28,7 +28,7 @@
                                     <small id="fullnameError" class="text-danger"></small>
                                 </div>
                                 <div class="form-group">
-                                    <label for="email">Email:</label>
+                                    <label for="email">E-mail:</label>
                                     <input type="email" class="form-control" id="email" name="email" onchange="validateEmail()">
                                     <small id="emailError" class="text-danger"></small>
                                 </div>
