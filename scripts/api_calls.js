@@ -136,3 +136,40 @@ async function get_gallery(elementId) {
     })
     .catch(error => console.error('Error:', error));
 }
+
+async function get_logs(elementId) {
+    fetch('api/get_logs.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+    })
+    .then(response => response.json())
+    .then(fetchedData => {
+        for (let i = 0; i < fetchedData.length; i++) {
+            let date = fetchedData[i].date;
+            let name = fetchedData[i].name;
+            let message = fetchedData[i].message;
+            let html = `
+                <ul class="list-group my-3">
+                    <li class="list-group-item card-bg">
+                        <div class="row mb-2 mt-2">
+                            <div class="col-md-6 d-flex align-items-center">
+                                <h5><i class="fa-solid fa-calendar mr-3"></i>${date}</h5>
+                            </div>
+                            <div class="col-md-6 d-flex align-items-center">
+                                <h5><i class="fa-solid fa-user mr-3"></i>${name}</h5>
+                            </div>   
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h5><i class="fa-solid fa-info-circle mr-3"></i>${message}</h5>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                `;
+            document.getElementById(elementId).innerHTML += html;
+        }
+    });
+}

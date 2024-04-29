@@ -8,10 +8,10 @@
             $dataCount = $stmt->rowCount();
             $fetchedData = $stmt->fetchAll(); 
         } else {
-            $dataCount = 0;
+            echo '<script> location.replace("index.php?site=error"); </script>';
         }
     } else {
-        $dataCount = 0;
+        echo '<script> location.replace("index.php?site=error"); </script>';
     }
 ?>
 

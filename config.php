@@ -12,7 +12,6 @@
         "about" => "Rólunk",
         "booking" => "Foglalás",
         "bookings" => "Foglalások",
-        "users" => "Felhasználók",
         "logs" => "Logok"
     );
     $database = array (

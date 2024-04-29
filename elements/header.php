@@ -26,7 +26,7 @@
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
                         <?php if (isset($_SESSION['user'])): ?>
-                            <?php if ($userData[0]['role_id'] != 1): ?>
+                            <?php if ($userData[0]['role_id'] == 2): ?>
                                 <a class="nav-link text-light" href="?site=myBookings"><?= $menuItems['bookings']; ?> <i class="fa-regular fa-calendar fa-sm"></i></i></a>
                             <?php else: ?>
                                 <a class="nav-link text-light" href="?site=booking"><?= $menuItems['booking']; ?> <i class="fa-regular fa-calendar fa-sm"></i></i></a>
@@ -54,12 +54,6 @@
                             <?php endif; ?>
                         <?php endif; ?>
                     </li>
-                    <li class="nav-item">
-                        <?php if (isset($_SESSION['user'])): ?>
-                            <?php if ($userData[0]['role_id'] == 3): ?>
-                                <a class="nav-link text-light" href="?site=users"><?= $menuItems['users']; ?> <i class="fa-solid fa-users fa-sm"></i></a>
-                            <?php endif; ?>
-                        <?php endif; ?>
                     <li class="nav-item">
                         <?php if (isset($_SESSION['user'])): ?>
                             <?php if ($userData[0]['role_id'] == 3): ?>

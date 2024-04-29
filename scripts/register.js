@@ -155,9 +155,9 @@ async function validateRegister() {
     var isPasswordValid = await validatePassword();
 
     if (isUerValid && isFullNameValid && isEmailValid && isPhoneValid && isPasswordValid) {
-        var username = document.getElementById("username");
-        var logMessage = username.value + " regisztrált a rendszerbe!";
-        sendLog(logMessage);
+        var name = document.getElementById("username").value;
+        var logMessage = "Regisztrált a rendszerbe";
+        sendLog(logMessage, name);
         return true;
     } else {
         return false;
