@@ -41,6 +41,7 @@ async function validateUserName() {
     if (username.value == "") {
         document.getElementById("usernameError").innerHTML = "A felhasználónév megadása kötelező!";
         username.style.border = "1px solid red";
+        shakeElement("username");
         return false;
     }
 
@@ -48,6 +49,7 @@ async function validateUserName() {
     if (!usernameIsFree) {
         document.getElementById("usernameError").innerHTML = "A felhasználónév foglalt, válassz másikat!";
         username.style.border = "1px solid red";
+        shakeElement("username");
         return false;
     }
 
@@ -63,6 +65,7 @@ async function validateFullName() {
     if (fullname.value == "") {
         document.getElementById("fullnameError").innerHTML = "A név megadása kötelező!";
         fullname.style.border = "1px solid red";
+        shakeElement("fullname");
         return false;
     } else {
         document.getElementById("fullnameError").innerHTML = "";
@@ -78,12 +81,14 @@ async function validateEmail() {
     if (email.value == "") {
         document.getElementById("emailError").innerHTML = "Az email cím megadása kötelező!";
         email.style.border = "1px solid red";
+        shakeElement("email");
         return false;
     } 
 
     if (!emailRegex.test(email.value)) {
         document.getElementById("emailError").innerHTML = "Az email cím formátuma nem megfelelő!";
         email.style.border = "1px solid red";
+        shakeElement("email");
         return false;
     }
 
@@ -91,6 +96,7 @@ async function validateEmail() {
     if (!emailIsFree) {
         document.getElementById("emailError").innerHTML = "Az email cím foglalt, válassz másikat!";
         email.style.border = "1px solid red";
+        shakeElement("email");
         return false;
     }
 
@@ -107,12 +113,14 @@ async function validatePhone() {
     if (phone.value == "") {
         document.getElementById("phoneError").innerHTML = "A telefonszám megadása kötelező!";
         phone.style.border = "1px solid red";
+        shakeElement("phone");
         return false;
     } 
 
     if (!phoneRegex.test(phone.value)) {
         document.getElementById("phoneError").innerHTML = "A telefonszám formátuma nem megfelelő!";
         phone.style.border = "1px solid red";
+        shakeElement("phone");
         return false;
     }
 
@@ -129,18 +137,22 @@ async function validatePassword() {
     if (password.value == "") {
         document.getElementById("passwordError").innerHTML = "A jelszó megadása kötelező!";
         password.style.border = "1px solid red";
+        shakeElement("password");
         return false;
     }
 
     if (password.value.length < 6) {
         document.getElementById("passwordError").innerHTML = "A jelszónak legalább 6 karakternek kell lennie!";
         password.style.border = "1px solid red";
+        shakeElement("password");
         return false;
     }
 
     if (password.value != passwordAgain.value) {
         document.getElementById("passwordError").innerHTML = "A jelszavak nem egyeznek!";
         document.getElementById("passwordAgainError").innerHTML = "A jelszavak nem egyeznek!";
+        shakeElement("password");
+        shakeElement("password-again");
         password.style.border = "1px solid red";
         passwordAgain.style.border = "1px solid red";
         return false;

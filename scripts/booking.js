@@ -13,6 +13,7 @@ async function validateBarber() {
     if (barber == '0') {
         document.getElementById("barberError").innerHTML = "Kérlek, válassz egy borbélyt!";
         email.style.border = "1px solid red";
+        shakeElement("barber");
         return false;
     }
     document.getElementById("barberError").innerHTML = "";
@@ -25,6 +26,7 @@ async function validateService() {
     if (service == '0') {
         document.getElementById("serviceError").innerHTML = "Kérlek, válassz egy szolgáltatást!";
         email.style.border = "1px solid red";
+        shakeElement("service");
         return false;
     }
     document.getElementById("serviceError").innerHTML = "";
@@ -38,6 +40,7 @@ async function validateDate() {
     if (date == "") {
         document.getElementById("dateError").innerHTML = "Kérlek, válassz egy dátumot!";
         email.style.border = "1px solid red";
+        shakeElement("date");
         return false;
     }
     document.getElementById("dateError").innerHTML = "";
@@ -51,6 +54,7 @@ async function validateName() {
     if (name.value == "") {
         document.getElementById("nameError").innerHTML = "A név megadása kötelező!";
         name.style.border = "1px solid red";
+        shakeElement("name");
         return false;
     }
 
@@ -67,12 +71,14 @@ async function validateEmail() {
     if (email.value == "") {
         document.getElementById("emailError").innerHTML = "Az email cím megadása kötelező!";
         email.style.border = "1px solid red";
+        shakeElement("email");
         return false;
     } 
 
     if (!emailRegex.test(email.value)) {
         document.getElementById("emailError").innerHTML = "Az email cím formátuma nem megfelelő!";
         email.style.border = "1px solid red";
+        shakeElement("email");
         return false;
     }
 
@@ -89,12 +95,14 @@ async function validatePhone() {
     if (phone.value == "") {
         document.getElementById("phoneError").innerHTML = "A telefonszám megadása kötelező!";
         phone.style.border = "1px solid red";
+        shakeElement("phone");
         return false;
     } 
 
     if (!phoneRegex.test(phone.value)) {
         document.getElementById("phoneError").innerHTML = "A telefonszám formátuma nem megfelelő!";
         phone.style.border = "1px solid red";
+        shakeElement("phone");
         return false;
     }
 

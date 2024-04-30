@@ -51,6 +51,7 @@ async function validatePassword() {
     if (password.value == "") {
         document.getElementById("passwordError").innerHTML = "A jelszó megadása kötelező!";
         password.style.border = "1px solid red";
+        shakeElement("password");
         return false;
     }
 
@@ -60,6 +61,7 @@ async function validatePassword() {
     if (user[0].password != passwordMD5) {
         document.getElementById("passwordError").innerHTML = "Hibás jelszó!";
         password.style.border = "1px solid red";
+        shakeElement("password");
         return false;
     }
     document.getElementById("passwordError").innerHTML = "";

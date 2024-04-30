@@ -14,6 +14,7 @@ async function validateOpinion() {
     if (opinion.value == "") {
         document.getElementById("opinionError").innerHTML = "Az vélemény megadása kötelező!";
         opinion.style.border = "1px solid red";
+        shakeElement("opinion");
         return false;
     }
 
@@ -28,6 +29,7 @@ async function validateImage() {
     if (image.value == "") {
         document.getElementById("imageError").innerHTML = "Az kép megadása kötelező!";
         image.style.border = "1px solid red";
+        shakeElement("image");
         return false;
     }
 
