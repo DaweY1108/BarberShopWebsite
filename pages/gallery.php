@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <body>
 
-<div>
+<div data-aos="zoom-in">
     <div class="container text-dark text-center my-5">
       <hr style="border-width: 1px; border-color: black" class="w-50">
       <h1> Galéria </h1>
@@ -15,7 +15,7 @@
 
 <?= $fullDivider ?>
 
-<div class="container text-center" style="padding-top: 50px; padding-bottom: 50px;">
+<div class="container text-center" style="padding-top: 50px; padding-bottom: 50px;" data-aos="zoom-in">
     <div class="card card-bg">
         <div class="card-body">
             <h2 class="card-title">Írd meg a véleményed</h2>

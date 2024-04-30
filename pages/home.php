@@ -6,14 +6,14 @@
   <head>
   </head>
   <body>
-    <div class="container text-light p-3 text-center my-5 border-2">  
+    <div class="container text-light p-3 text-center my-5 border-2" data-aos="zoom-in">  
       <hr style="border-width: 1px; border-color: black" class="w-50 shadow">
       <img src="assets/images/logo-dark.svg" alt="logo" class="img-fluid shadow" style="">
       <hr style="border-width: 1px; border-color: black" class="w-50 shadow">
       <h4 class="pt-5" style="color: black">Hajvágásra van szükséged? Akár egy szakáll igazítás? Nálunk ezt mind megtalálod!</h4>
     </div>
     <?= $fullDivider; ?>
-    <div class="container my-5">
+    <div class="container my-5" data-aos="zoom-in">
       <div class="row">
         <div class="col">
           <h3 class="text-center">Videók</h3>
@@ -51,7 +51,7 @@
       </div>
     </div>
     <?= $fullDivider; ?>
-    <div class="container my-5">
+    <div class="container my-5" data-aos="zoom-in">
       <div class="row">
           <div class="col">
               <h3 class="text-center">Itt találsz meg minket</h3>
