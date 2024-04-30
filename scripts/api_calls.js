@@ -214,3 +214,48 @@ async function get_contacts(elementId) {
         }
     });
 }
+
+async function get_bookings(elementId, userid) {
+    fetch('api/get_bookings.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ userid: userid })
+    })
+    .then(response => response.json())
+    .then(fetchedData => {
+        console.log(fetchedData);
+        for (let i = 0; i < fetchedData.length; i++) {
+            let fullname = fetchedData[i].userFullName;
+            let phone = fetchedData[i].phone;
+            let email = fetchedData[i].email;
+            let date = fetchedData[i].date;
+            let dateDate = date.split(" ")[0];
+            let dateHour = date.split(" ")[1];
+            let service = fetchedData[i].serviceName;
+            let html = `
+                <ul class="list-group">
+                    <li class="list-group-item my-3 card-bg">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <h5><i class="fa-solid fa-user mr-3"></i> ${fullname}</h5>
+                                <h5><i class="fa-solid fa-phone mr-3"></i> ${phone}</h5>
+                                <h5><i class="fa-solid fa-envelope mr-3"></i> ${email}</h5>
+                            </div>
+                            <div class="col-md-5">
+                                <h5><i class="fa-solid fa-calendar mr-3"></i> ${dateDate}</h5>
+                                <h5><i class="fa-solid fa-clock mr-3"></i> ${dateHour}</h5>
+                                <h5><i class="fa-solid fa-scissors mr-3"></i> ${service}</h5>
+                            </div>
+                            <div class="col-md-3 d-flex justify-content-center align-items-center">
+                                <button type="button" class="btn btn-lg btn-block btn-dark">Törlés</button>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                `;
+            document.getElementById(elementId).innerHTML += html;
+        }
+    });
+}
