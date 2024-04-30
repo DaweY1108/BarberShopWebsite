@@ -102,17 +102,24 @@ async function validateEmail() {
 
 async function validatePhone() {
     var phone = document.getElementById("phone");
+    var phoneRegex = /^\d{11}$/;
 
     if (phone.value == "") {
         document.getElementById("phoneError").innerHTML = "A telefonszám megadása kötelező!";
         phone.style.border = "1px solid red";
         return false;
+    } 
+
+    if (!phoneRegex.test(phone.value)) {
+        document.getElementById("phoneError").innerHTML = "A telefonszám formátuma nem megfelelő!";
+        phone.style.border = "1px solid red";
+        return false;
     }
-    else {
-        document.getElementById("phoneError").innerHTML = "";
-        phone.style.border = "1px solid green";
-        return true;
-    }
+
+    document.getElementById("phoneError").innerHTML = "";
+    phone.style.border = "1px solid green";
+    return true;
+
 }
 
 async function validatePassword() {
