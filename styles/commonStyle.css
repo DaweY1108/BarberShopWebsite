@@ -96,12 +96,15 @@ cursor: pointer;
 
 @keyframes shake {
     0% {
-        transform: rotate(0deg)
+        transform: translateX(0)
     }
     25% {
-        transform: rotate(90deg)
+        transform: translateX(-5px)
+    }
+    50% {
+        transform: translateX(5px)
     }
     100% {
-        transform: rotate(180deg)
+        transform: translateX(-5px)
     }
 }
