@@ -27,6 +27,7 @@ async function validateEmail() {
 
     if (email.value == "") {
         document.getElementById("emailError").innerHTML = "Az email cím megadása kötelező!";
+        shakeElement("email");
         email.style.border = "1px solid red";
         return false;
     }
@@ -34,6 +35,7 @@ async function validateEmail() {
     const user = await getUserByEmail(email.value);
     if (user.length == 0) {
         document.getElementById("emailError").innerHTML = "Az email cím nem létezik!";
+        shakeElement("email");
         email.style.border = "1px solid red";
         return false;
     }

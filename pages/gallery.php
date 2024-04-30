@@ -20,23 +20,27 @@
         <div class="card-body">
             <h2 class="card-title">Írd meg a véleményed</h2>
             <?php if (isset($_SESSION['user'])): ?>
-                <form id='galleryForm' name='galleryForm' action='operations/op_gallery.php' method='post' enctype='multipart/form-data'>
-                    <div class='d-flex justify-content-center'>
-                        <div class='form-group w-100 text-left'>
-                            <label for='opinion'>Vélemény:</label>
-                            <textarea class='form-control' id='opinion' name='opinion' rows='3'></textarea>
-                            <small id="opinionError" class="text-danger"></small>
+                <?php if ($userData[0]['role_id'] == 1): ?>
+                    <form id='galleryForm' name='galleryForm' action='operations/op_gallery.php' method='post' enctype='multipart/form-data'>
+                        <div class='d-flex justify-content-center'>
+                            <div class='form-group w-100 text-left'>
+                                <label for='opinion'>Vélemény:</label>
+                                <textarea class='form-control' id='opinion' name='opinion' rows='3'></textarea>
+                                <small id="opinionError" class="text-danger"></small>
+                            </div>
                         </div>
-                    </div>
-                    <div class='d-flex justify-content-center'>
-                        <div class='input-group custom-file-button w-100'>
-                            <label class='input-group-text card-bg' for='image'>Kép választása</label>
-                            <input type='file' class='form-control' id='image' name='image'>
+                        <div class='d-flex justify-content-center'>
+                            <div class='input-group custom-file-button w-100'>
+                                <label class='input-group-text card-bg' for='image'>Kép választása</label>
+                                <input type='file' class='form-control' id='image' name='image'>
+                            </div>
+                            <small id="imageError" class="text-danger"></small>
                         </div>
-                        <small id="imageError" class="text-danger"></small>
-                    </div>
-                    <button type='submit' class='btn btn-primary w-50 mt-3'>Beküldés</button>
-                </form>
+                        <button type='submit' class='btn btn-primary w-50 mt-3'>Beküldés</button>
+                    </form>
+                <?php else: ?>
+                    Csak felhasználó írhat véleményt!
+                <?php endif; ?>
             <?php else: ?>
                 Csak bejelentkezett felhasználó írhat véleményt!
             <?php endif; ?>

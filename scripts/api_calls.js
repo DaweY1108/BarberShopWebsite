@@ -116,6 +116,7 @@ async function get_gallery(elementId) {
             let name = fetchedData[i].full_name;
             let opinion = fetchedData[i].opinion;
             let photoID = fetchedData[i].photoID;
+            let date = fetchedData[i].date;
             let html = `
             <div class='row card-bg py-3 border my-3'>
                 <div class='col-md-4 py-2 bg-light shadow mx-2'>
@@ -124,8 +125,10 @@ async function get_gallery(elementId) {
                         <h6 class='card-title text-center py-3'>${name}</h6>
                     </div>
                 </div>
-                <div class='col-md-7 mx-4'>
+                <div class='col-md-7 mx-4 py-1'>
                     <div class='media-body'>
+                        <h5><i class="fa-solid fa-calendar"></i> ${date}</h5>
+                        <hr style="border-width: 1px; border-color: black" class="w-100">
                         <h5 class='card-text text-justify px-2 py-3'>${opinion}</h5>
                     </div>
                 </div>
