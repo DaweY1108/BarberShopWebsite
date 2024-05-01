@@ -15,12 +15,14 @@ async function validateEmail() {
     if (email.value == "") {
         document.getElementById("emailError").innerHTML = "Az email cím megadása kötelező!";
         email.style.border = "1px solid red";
+        shakeElement("email");
         return false;
     } 
 
     if (!emailRegex.test(email.value)) {
         document.getElementById("emailError").innerHTML = "Az email cím formátuma nem megfelelő!";
         email.style.border = "1px solid red";
+        shakeElement("email");
         return false;
     }
 
@@ -35,6 +37,7 @@ async function validateName() {
     if (name.value == "") {
         document.getElementById("nameError").innerHTML = "A név megadása kötelező!";
         name.style.border = "1px solid red";
+        shakeElement("name");
         return false;
     }
 
@@ -49,6 +52,7 @@ async function validateMessage() {
     if (message.value == "") {
         document.getElementById("messageError").innerHTML = "Az üzenet megadása kötelező!";
         message.style.border = "1px solid red";
+        shakeElement("message");
         return false;
     }
 

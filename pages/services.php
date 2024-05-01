@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <body>
-        <div>
+        <div data-aos="zoom-in">
             <div class="container text-dark text-center my-5">
                 <hr style="border-width: 1px; border-color: black" class="w-50">
                 <h1> Szolgáltatások </h1>

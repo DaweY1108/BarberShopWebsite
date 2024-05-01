@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
     <body>
-        <div style="display: flex; align-items: center; justify-content: center; height: 35rem;">
+        <div style="display: flex; align-items: center; justify-content: center; height: 35rem;" data-aos="zoom-in">
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-lg-6">

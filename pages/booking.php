@@ -9,6 +9,15 @@
     $stmt->execute();
     $barberCount = $stmt->rowCount();
     $fetchedBarbers = $stmt->fetchAll();
+
+    $service="0";
+    $barber="0";
+    if (isset($_GET["service"])) {
+        $service = $_GET["service"];
+    }
+    if (isset($_GET["barber"])) {
+        $barber = $_GET["barber"];
+    }
 ?>
 
 <!DOCTYPE html>
@@ -17,7 +26,7 @@
     <title>Booking Form</title>
 </head>
 <body>
-    <div style="">
+    <div data-aos="zoom-in">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-6">
@@ -29,14 +38,18 @@
                             <form id="bookingForm" name="bookingForm" action="operations/op_booking.php" method="POST">
                                 <div class="form-group">
                                     <label for="barber">Válassz egy borbélyt:</label>
-                                    <select name="barber" id="barber" class="form-control" onchange="validateBarber()">
+                                    <select name="barber" id="barber" class="form-control" onchange="validateBarber()" value="<?= $barber ?>">
                                         <option value='0'>Válassz...</option>
                                         <?php
                                             for ($i = 0; $i < $barberCount; $i++) {
                                                 $name = $fetchedBarbers[$i]["full_name"];
                                                 $id = $fetchedBarbers[$i]["barberID"];
                                                 $number = $id+1;
-                                                echo "<option value='$number'>$name</option>";
+                                                if ($barber == $id) {
+                                                    echo "<option value='$number' selected='selected'>$name</option>";
+                                                } else {
+                                                    echo "<option value='$number'>$name</option>";
+                                                }
                                             }
                                         ?>
                                     </select>
@@ -51,7 +64,12 @@
                                                 $name = $fetchedServices[$i]["name"];
                                                 $id = $fetchedServices[$i]["id"];
                                                 $number = $id+1;
-                                                echo "<option value='$number'>$name</option>";
+                                                if ($service == $id) {
+                                                    echo "<option value='$number' selected='selected'>$name</option>";
+                                                } else {
+                                                    echo "<option value='$number'>$name</option>";
+                                                }
+                                                
                                             }
                                         ?>
                                     </select>

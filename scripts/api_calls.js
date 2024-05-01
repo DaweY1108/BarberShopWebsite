@@ -24,11 +24,12 @@ async function get_barbers(elementId) {
     .then(response => response.json())
     .then(fetchedData => {
         for (let i = 0; i < fetchedData.length; i++) {
+            let id = fetchedData[i].id;
             let imageLoc = "assets/images/barbers/" + fetchedData[i].id + ".jpg";
             let name = fetchedData[i].full_name;
             let description = fetchedData[i].description;
             let skills = fetchedData[i].skills;
-            let html = `<div class='container mx-auto mt-5 col-12'>
+            let html = `<div class='container mx-auto mt-5 col-12' data-aos="zoom-in">
                             <div class='row justify-content-center pb-5'>
                                 <div class='card card-bg col-md-6 mt-100'>
                                     <div class='card-content'>
@@ -48,9 +49,13 @@ async function get_barbers(elementId) {
                                                     <h6>${skills}</h6>
                                                 </div>
                                             </div>
-                                            <div class='row justify-content-right pt-3'>
-                                                <button type='button' class='btn btn-lg btn-block btn-dark'>Foglalok</button>
-                                            </div>
+                                            <form action='index.php?site=booking&barber=${id}' method='POST'>
+                                                <div class='row justify-content-right pt-3'>
+                                                    
+                                                        <button type='submit' class='btn btn-lg btn-block btn-dark'>Foglalok</button>
+                                                    
+                                                </div>
+                                            </form>
                                         </div>
                                     </div>
                                 </div>
@@ -76,11 +81,12 @@ async function get_services(elementId) {
     .then(response => response.json())
     .then(fetchedData => {
         for (let i = 0; i < fetchedData.length; i++) {
+            let id = fetchedData[i].id;
             let price = fetchedData[i].price;
             let name = fetchedData[i].name;
             let description = fetchedData[i].description;
             let html = `
-            <div class='card card-bg mb-4 box-shadow'>
+            <div class='card card-bg mb-4 box-shadow' data-aos="zoom-in">
                 <div class='card-header'>
                     <h4 class='my-0 font-weight-normal'>${name}</h4>
                 </div>
@@ -89,7 +95,9 @@ async function get_services(elementId) {
                     <ul class='list-unstyled mt-3 mb-4'>
                     <li>${description}</li>
                     </ul>
-                    <button type='button' class='btn btn-lg btn-block btn-dark'>Foglalok</button>
+                    <form action='index.php?site=booking&service=${id}' method='POST'>
+                        <button type='submit' class='btn btn-lg btn-block btn-dark'>Foglalok</button>
+                    </form>
                 </div>
             </div>
             `;
@@ -116,16 +124,19 @@ async function get_gallery(elementId) {
             let name = fetchedData[i].full_name;
             let opinion = fetchedData[i].opinion;
             let photoID = fetchedData[i].photoID;
+            let date = fetchedData[i].date;
             let html = `
-            <div class='row card-bg py-3 border my-3'>
+            <div class='row card-bg py-3 border my-3' data-aos="zoom-in">
                 <div class='col-md-4 py-2 bg-light shadow mx-2'>
                     <div class='d-flex flex-column justify-content-md-start justify-content-center align-items-center'>
                         <img src='operations/op_getImage.php?id=${photoID}' alt='' class='img-fluid border border-dark my-2 shadow'/>
                         <h6 class='card-title text-center py-3'>${name}</h6>
                     </div>
                 </div>
-                <div class='col-md-7 mx-4'>
+                <div class='col-md-7 mx-4 py-1'>
                     <div class='media-body'>
+                        <h5><i class="fa-solid fa-calendar"></i> ${date}</h5>
+                        <hr style="border-width: 1px; border-color: black" class="w-100">
                         <h5 class='card-text text-justify px-2 py-3'>${opinion}</h5>
                     </div>
                 </div>
@@ -151,23 +162,25 @@ async function get_logs(elementId) {
             let name = fetchedData[i].name;
             let message = fetchedData[i].message;
             let html = `
-                <ul class="list-group my-3">
-                    <li class="list-group-item card-bg">
-                        <div class="row mb-2 mt-2">
-                            <div class="col-md-6 d-flex align-items-center">
-                                <h5><i class="fa-solid fa-calendar mr-3"></i>${date}</h5>
+                <div data-aos="zoom-in">
+                    <ul class="list-group my-3">
+                        <li class="list-group-item card-bg">
+                            <div class="row mb-2 mt-2">
+                                <div class="col-md-6 d-flex align-items-center">
+                                    <h5><i class="fa-solid fa-calendar mr-3"></i>${date}</h5>
+                                </div>
+                                <div class="col-md-6 d-flex align-items-center">
+                                    <h5><i class="fa-solid fa-user mr-3"></i>${name}</h5>
+                                </div>   
                             </div>
-                            <div class="col-md-6 d-flex align-items-center">
-                                <h5><i class="fa-solid fa-user mr-3"></i>${name}</h5>
-                            </div>   
-                        </div>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <h5><i class="fa-solid fa-info-circle mr-3"></i>${message}</h5>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h5><i class="fa-solid fa-info-circle mr-3"></i>${message}</h5>
+                                </div>
                             </div>
-                        </div>
-                    </li>
-                </ul>
+                        </li>
+                    </ul>
+                </div>
                 `;
             document.getElementById(elementId).innerHTML += html;
         }
@@ -189,26 +202,28 @@ async function get_contacts(elementId) {
             let email = fetchedData[i].email;
             let message = fetchedData[i].message;
             let html = `
-                <ul class="list-group my-3">
-                    <li class="list-group-item card-bg">
-                        <div class="row mb-2 mt-2">
-                            <div class="col-md-4 d-flex align-items-center">
-                                <h5><i class="fa-solid fa-calendar mr-3"></i>${date}</h5>
+                <div data-aos="zoom-in">
+                    <ul class="list-group my-3" >
+                        <li class="list-group-item card-bg">
+                            <div class="row mb-2 mt-2">
+                                <div class="col-md-4 d-flex align-items-center">
+                                    <h5><i class="fa-solid fa-calendar mr-3"></i>${date}</h5>
+                                </div>
+                                <div class="col-md-4 d-flex align-items-center">
+                                    <h5><i class="fa-solid fa-user mr-3"></i>${name}</h5>
+                                </div>
+                                <div class="col-md-4 d-flex align-items-center">
+                                    <h5><i class="fa-solid fa-envelope mr-3"></i>${email}</h5>
+                                </div>      
                             </div>
-                            <div class="col-md-4 d-flex align-items-center">
-                                <h5><i class="fa-solid fa-user mr-3"></i>${name}</h5>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h5><i class="fa-solid fa-message mr-3"></i>${message}</h5>
+                                </div>
                             </div>
-                            <div class="col-md-4 d-flex align-items-center">
-                                <h5><i class="fa-solid fa-envelope mr-3"></i>${email}</h5>
-                            </div>      
-                        </div>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <h5><i class="fa-solid fa-message mr-3"></i>${message}</h5>
-                            </div>
-                        </div>
-                    </li>
-                </ul>
+                        </li>
+                    </ul>
+                </div>
                 `;
             document.getElementById(elementId).innerHTML += html;
         }
@@ -235,25 +250,27 @@ async function get_bookings(elementId, userid) {
             let dateHour = date.split(" ")[1];
             let service = fetchedData[i].serviceName;
             let html = `
-                <ul class="list-group">
-                    <li class="list-group-item my-3 card-bg">
-                        <div class="row">
-                            <div class="col-md-4">
-                                <h5><i class="fa-solid fa-user mr-3"></i> ${fullname}</h5>
-                                <h5><i class="fa-solid fa-phone mr-3"></i> ${phone}</h5>
-                                <h5><i class="fa-solid fa-envelope mr-3"></i> ${email}</h5>
+                <div data-aos="zoom-in">
+                    <ul class="list-group">
+                        <li class="list-group-item my-3 card-bg">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <h5><i class="fa-solid fa-user mr-3"></i> ${fullname}</h5>
+                                    <h5><i class="fa-solid fa-phone mr-3"></i> ${phone}</h5>
+                                    <h5><i class="fa-solid fa-envelope mr-3"></i> ${email}</h5>
+                                </div>
+                                <div class="col-md-5">
+                                    <h5><i class="fa-solid fa-calendar mr-3"></i> ${dateDate}</h5>
+                                    <h5><i class="fa-solid fa-clock mr-3"></i> ${dateHour}</h5>
+                                    <h5><i class="fa-solid fa-scissors mr-3"></i> ${service}</h5>
+                                </div>
+                                <div class="col-md-3 d-flex justify-content-center align-items-center">
+                                    <button type="button" class="btn btn-lg btn-block btn-dark">Törlés</button>
+                                </div>
                             </div>
-                            <div class="col-md-5">
-                                <h5><i class="fa-solid fa-calendar mr-3"></i> ${dateDate}</h5>
-                                <h5><i class="fa-solid fa-clock mr-3"></i> ${dateHour}</h5>
-                                <h5><i class="fa-solid fa-scissors mr-3"></i> ${service}</h5>
-                            </div>
-                            <div class="col-md-3 d-flex justify-content-center align-items-center">
-                                <button type="button" class="btn btn-lg btn-block btn-dark">Törlés</button>
-                            </div>
-                        </div>
-                    </li>
-                </ul>
+                        </li>
+                    </ul>
+                </div>
                 `;
             document.getElementById(elementId).innerHTML += html;
         }
