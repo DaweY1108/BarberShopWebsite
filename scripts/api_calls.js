@@ -24,6 +24,7 @@ async function get_barbers(elementId) {
     .then(response => response.json())
     .then(fetchedData => {
         for (let i = 0; i < fetchedData.length; i++) {
+            let id = fetchedData[i].id;
             let imageLoc = "assets/images/barbers/" + fetchedData[i].id + ".jpg";
             let name = fetchedData[i].full_name;
             let description = fetchedData[i].description;
@@ -48,9 +49,13 @@ async function get_barbers(elementId) {
                                                     <h6>${skills}</h6>
                                                 </div>
                                             </div>
-                                            <div class='row justify-content-right pt-3'>
-                                                <button type='button' class='btn btn-lg btn-block btn-dark'>Foglalok</button>
-                                            </div>
+                                            <form action='index.php?site=booking&barber=${id}' method='POST'>
+                                                <div class='row justify-content-right pt-3'>
+                                                    
+                                                        <button type='submit' class='btn btn-lg btn-block btn-dark'>Foglalok</button>
+                                                    
+                                                </div>
+                                            </form>
                                         </div>
                                     </div>
                                 </div>
@@ -76,6 +81,7 @@ async function get_services(elementId) {
     .then(response => response.json())
     .then(fetchedData => {
         for (let i = 0; i < fetchedData.length; i++) {
+            let id = fetchedData[i].id;
             let price = fetchedData[i].price;
             let name = fetchedData[i].name;
             let description = fetchedData[i].description;
@@ -89,7 +95,9 @@ async function get_services(elementId) {
                     <ul class='list-unstyled mt-3 mb-4'>
                     <li>${description}</li>
                     </ul>
-                    <button type='button' class='btn btn-lg btn-block btn-dark'>Foglalok</button>
+                    <form action='index.php?site=booking&service=${id}' method='POST'>
+                        <button type='submit' class='btn btn-lg btn-block btn-dark'>Foglalok</button>
+                    </form>
                 </div>
             </div>
             `;
