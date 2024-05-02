@@ -121,3 +121,7 @@ async function validateBooking() {
     const isValidPhone = await validatePhone();
     return isValidBarber && isValidService && isValidDate && isValidName && isValidEmail && isValidPhone;
 }
+
+async function deleteBooking(id) {
+    
+}
