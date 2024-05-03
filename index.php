@@ -50,7 +50,7 @@
         <script src="vendor/js/jquery.js"></script>
         <script src="vendor/js/bootstrap.js"></script>
         <script src="vendor/js/aos.js"></script>
-        <script src="scripts/main.js"></script>
+        <script src="scripts/shake.js"></script>
         <script src="scripts/logger.js"></script>
         <script src="scripts/md5.js"></script>
         <script src="scripts/api_calls.js"></script>

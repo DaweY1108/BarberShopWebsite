@@ -16,10 +16,10 @@
                             <h2 class="text-center">Bejelentkezés</h2>
                         </div>
                         <div class="card-body"> 
-                            <form action="operations/op_login.php" class="needs-validation g-3" id="loginForm" name="loginForm" method="POST">
-                                <div class="form-group has-error">
+                            <form action="operations/op_login.php" id="loginForm" name="loginForm" method="POST">
+                                <div class="form-group">
                                     <label for="email">E-mail:</label>
-                                    <input type="email" class="form-control" id="email" name="email">
+                                    <input type="text" class="form-control" id="email" name="email">
                                     <small id="emailError" class="text-danger"></small>
                                 </div>
                                 <div class="form-group">
