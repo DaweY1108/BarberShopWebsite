@@ -231,6 +231,7 @@ async function get_contacts(elementId) {
 }
 
 async function get_bookings(elementId, userid) {
+    document.getElementById(elementId).innerHTML = "";
     fetch('api/get_bookings.php', {
         method: 'POST',
         headers: {
@@ -242,6 +243,7 @@ async function get_bookings(elementId, userid) {
     .then(fetchedData => {
         console.log(fetchedData);
         for (let i = 0; i < fetchedData.length; i++) {
+            let id = fetchedData[i].bookID;
             let fullname = fetchedData[i].userFullName;
             let phone = fetchedData[i].phone;
             let email = fetchedData[i].email;
@@ -265,7 +267,7 @@ async function get_bookings(elementId, userid) {
                                     <h5><i class="fa-solid fa-scissors mr-3"></i> ${service}</h5>
                                 </div>
                                 <div class="col-md-3 d-flex justify-content-center align-items-center">
-                                    <button type="button" class="btn btn-lg btn-block btn-dark">Törlés</button>
+                                    <button type="button" class="btn btn-lg btn-block btn-dark" onClick="remove_booking('${id}', '${userid}'); ">Törlés</button>
                                 </div>
                             </div>
                         </li>
@@ -275,4 +277,16 @@ async function get_bookings(elementId, userid) {
             document.getElementById(elementId).innerHTML += html;
         }
     });
+}
+
+async function remove_booking(id, userid) {
+    console.log(id);
+    const response = fetch('api/remove_booking.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ id: id })
+    });
+    get_bookings('bookings', userid);
 }

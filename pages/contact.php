@@ -33,16 +33,20 @@
                 <div class="card card-bg">
                         <div class="card-body">
                             <form id="contactForm" name="contactForm" action="operations/op_contact.php" class="needs-validation g-3" method="POST">
-                                <div class="form-group has-error">
-                                    <label for="email">E-mail:</label>
-                                    <input type="email" class="form-control" value="<?php if (isset($_SESSION['user'])) echo $userData[0]['email']; ?>" id="email" name="email" onchange="validateEmail()">
-                                    <small id="emailError" class="text-danger"></small>
-                                </div>
-                                <div class="form-group">
-                                    <label for="name">Név:</label>
-                                    <input type="text" class="form-control" value="<?php if (isset($_SESSION['user'])) echo $userData[0]['full_name']; ?>" id="name" name="name" onchange="validateName()">
-                                    <small id="nameError" class="text-danger"></small>
-                                </div>
+                                <?php if (isset($_SESSION['user'])): ?>
+                                    <div class="form-group">
+                                        <label for="email">E-mail:</label>
+                                        <input type="email" class="form-control" value="<?php if (isset($_SESSION['user'])) echo $userData[0]['email']; ?>" id="email" name="email" onchange="validateEmail()">
+                                        <small id="emailError" class="text-danger"></small>
+                                    </div>
+                                <?php endif; ?>
+                                <?php if (isset($_SESSION['user'])): ?>
+                                    <div class="form-group">
+                                        <label for="name">Név:</label>
+                                        <input type="text" class="form-control" value="<?php if (isset($_SESSION['user'])) echo $userData[0]['full_name']; ?>" id="name" name="name" onchange="validateName()">
+                                        <small id="nameError" class="text-danger"></small>
+                                    </div>
+                                <?php endif; ?>
                                 <div class="form-group">
                                     <label for="message">Üzenet:</label>
                                     <textarea class="form-control" id="message" name="message" rows="3" onchange="validateMessage()"></textarea>

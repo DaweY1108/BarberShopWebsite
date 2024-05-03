@@ -10,6 +10,9 @@ document.getElementById('contactForm').addEventListener('submit', function(event
 
 async function validateEmail() {
     var email = document.getElementById("email");
+    if (email == null) {
+        return true;
+    }
     var emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
     if (email.value == "") {
@@ -33,6 +36,9 @@ async function validateEmail() {
 
 async function validateName() {
     var name = document.getElementById("name");
+    if (name == null) {
+        return true;
+    }
 
     if (name.value == "") {
         document.getElementById("nameError").innerHTML = "A név megadása kötelező!";

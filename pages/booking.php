@@ -44,11 +44,10 @@
                                             for ($i = 0; $i < $barberCount; $i++) {
                                                 $name = $fetchedBarbers[$i]["full_name"];
                                                 $id = $fetchedBarbers[$i]["barberID"];
-                                                $number = $id+1;
                                                 if ($barber == $id) {
-                                                    echo "<option value='$number' selected='selected'>$name</option>";
+                                                    echo "<option value='$id' selected='selected'>$name</option>";
                                                 } else {
-                                                    echo "<option value='$number'>$name</option>";
+                                                    echo "<option value='$id'>$name</option>";
                                                 }
                                             }
                                         ?>
@@ -63,11 +62,10 @@
                                             for ($i = 0; $i < $serviceCount; $i++) {
                                                 $name = $fetchedServices[$i]["name"];
                                                 $id = $fetchedServices[$i]["id"];
-                                                $number = $id+1;
                                                 if ($service == $id) {
-                                                    echo "<option value='$number' selected='selected'>$name</option>";
+                                                    echo "<option value='$id' selected='selected'>$name</option>";
                                                 } else {
-                                                    echo "<option value='$number'>$name</option>";
+                                                    echo "<option value='$id'>$name</option>";
                                                 }
                                                 
                                             }
