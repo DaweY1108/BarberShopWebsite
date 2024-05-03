@@ -62,6 +62,13 @@ async function validateUserName() {
 async function validateFullName() {
     var fullname = document.getElementById("fullname");
 
+    if (fullname == "Vendég") {
+        document.getElementById("fullnameError").innerHTML = "Ez a név nem használható!";
+        fullname.style.border = "1px solid red";
+        shakeElement("fullname");
+        return false;
+    }
+
     if (fullname.value == "") {
         document.getElementById("fullnameError").innerHTML = "A név megadása kötelező!";
         fullname.style.border = "1px solid red";

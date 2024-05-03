@@ -36,7 +36,7 @@
                             </div>
                             <small id="imageError" class="text-danger"></small>
                         </div>
-                        <button type='submit' class='btn btn-primary w-50 mt-3'>Beküldés</button>
+                        <button type='submit' class='btn btn-dark w-50 mt-3'>Beküldés</button>
                     </form>
                 <?php else: ?>
                     Csak felhasználó írhat véleményt!
