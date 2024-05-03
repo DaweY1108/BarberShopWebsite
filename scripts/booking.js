@@ -8,6 +8,19 @@ document.getElementById('bookingForm').addEventListener('submit', function(event
     });
 });
 
+async function getUserByEmail(email) {
+    const response = await fetch('api/get_users.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email: email })
+    });
+    const data = await response.json();
+    return data;
+}
+
+
 async function validateBarber() {
     var barber = document.getElementById('barber').value;
     if (barber == '0') {
@@ -73,7 +86,23 @@ async function validateEmail() {
         email.style.border = "1px solid red";
         shakeElement("email");
         return false;
-    } 
+    }
+    if (!userLoggedIn) {
+        const user = await getUserByEmail(email.value);
+        if (user.length != 0) {
+            document.getElementById("emailError").innerHTML = "Az email cím már foglalt Jelentkezz be a foglaláshoz!";
+            email.style.border = "1px solid red";
+            shakeElement("email");
+            return false;
+        }
+    } else {
+        if (email.value != loggedInEmail) {
+            document.getElementById("emailError").innerHTML = "Az email cím nem egyezik a bejelentkezett felhasználóéval!";
+            email.style.border = "1px solid red";
+            shakeElement("email");
+            return false;
+        }
+    }
 
     if (!emailRegex.test(email.value)) {
         document.getElementById("emailError").innerHTML = "Az email cím formátuma nem megfelelő!";
@@ -111,7 +140,6 @@ async function validatePhone() {
     return true;
 
 }
-
 async function validateBooking() {
     const isValidBarber = await validateBarber();
     const isValidService = await validateService();
@@ -119,9 +147,11 @@ async function validateBooking() {
     const isValidName = await validateName();
     const isValidEmail = await validateEmail();
     const isValidPhone = await validatePhone();
+    const user = await getUserByEmail(document.getElementById("email").value);
+    if (user.length == 0) {
+        sendLog("Foglalt egy időpontot", "Vendég");
+    } else {
+        sendLog("Foglalt egy időpontot", user[0].username);
+    }
     return isValidBarber && isValidService && isValidDate && isValidName && isValidEmail && isValidPhone;
-}
-
-async function deleteBooking(id) {
-    
 }

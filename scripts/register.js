@@ -17,7 +17,6 @@ async function isUsernameFree(username) {
         body: JSON.stringify({ username: username })
     });
     const data = await response.json();
-    console.log(data);
     return data.length == 0;
 }
 
@@ -31,7 +30,6 @@ async function isEmailFree(email) {
     });
     
     const data = await response.json();
-    console.log(data);
     return data.length == 0;
 }
 
@@ -62,7 +60,7 @@ async function validateUserName() {
 async function validateFullName() {
     var fullname = document.getElementById("fullname");
 
-    if (fullname == "Vendég") {
+    if (fullname.value == 'Vendég') {
         document.getElementById("fullnameError").innerHTML = "Ez a név nem használható!";
         fullname.style.border = "1px solid red";
         shakeElement("fullname");

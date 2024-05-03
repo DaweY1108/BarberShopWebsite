@@ -18,6 +18,10 @@
     if (isset($_GET["barber"])) {
         $barber = $_GET["barber"];
     }
+    echo '<script>
+        const userLoggedIn = ' . (isset($_SESSION['user']) ? 'true' : 'false') . ';
+        const loggedInEmail = "' . (isset($_SESSION['user']) ? $userData[0]['email'] : '') . '";
+    </script>';
 ?>
 
 <!DOCTYPE html>

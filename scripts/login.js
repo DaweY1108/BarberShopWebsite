@@ -18,17 +18,24 @@ async function getUserByEmail(email) {
     });
     
     const data = await response.json();
-    console.log(data);
     return data;
 }
 
 async function validateEmail() {
     var email = document.getElementById("email");
+    var emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
     if (email.value == "") {
         document.getElementById("emailError").innerHTML = "Az email cím megadása kötelező!";
         shakeElement("email");
         email.style.border = "1px solid red";
+        return false;
+    }
+
+    if (!emailRegex.test(email.value)) {
+        document.getElementById("emailError").innerHTML = "Az email cím formátuma nem megfelelő!";
+        email.style.border = "1px solid red";
+        shakeElement("email");
         return false;
     }
 
