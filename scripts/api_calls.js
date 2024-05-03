@@ -148,6 +148,10 @@ async function get_gallery(elementId) {
     .catch(error => console.error('Error:', error));
 }
 
+/*
+    Vélemények adatainak lekérése, majd html kód felépítése
+*/
+
 async function get_logs(elementId) {
     fetch('api/get_logs.php', {
         method: 'POST',
@@ -186,6 +190,10 @@ async function get_logs(elementId) {
         }
     });
 }
+
+/*
+    Kapcsolatok adatainak lekérése, majd html kód felépítése
+*/
 
 async function get_contacts(elementId) {
     fetch('api/get_contacts.php', {
@@ -230,6 +238,9 @@ async function get_contacts(elementId) {
     });
 }
 
+/*
+    Foglalások adatainak lekérése, majd html kód felépítése
+*/
 async function get_bookings(elementId, userid) {
     document.getElementById(elementId).innerHTML = "";
     fetch('api/get_bookings.php', {
@@ -278,6 +289,10 @@ async function get_bookings(elementId, userid) {
         }
     });
 }
+
+/*
+    Foglalás törlése
+*/
 
 async function remove_booking(id, userid) {
     console.log(id);

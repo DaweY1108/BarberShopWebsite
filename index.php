@@ -16,6 +16,7 @@
 <head>
     <title><?= $title ?></title>
     <meta charset="utf-8" />
+    <link rel="icon" type="image/x-icon" href="assets/images/barbershop.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
     <link rel="stylesheet" href="vendor/css/bootstrap-min.css">
     <link rel="stylesheet" href="vendor/css/fontawesome.css">
