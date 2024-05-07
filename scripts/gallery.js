@@ -23,6 +23,25 @@ async function validateOpinion() {
     return true;
 }
 
+function getExtension(filename) {
+    var parts = filename.split('.');
+    return parts[parts.length - 1];
+}
+
+function isImage(filename) {
+    var ext = getExtension(filename);
+    switch (ext.toLowerCase()) {
+      case 'jpeg':
+        return true;
+      case 'jpg':
+        return true;
+      case 'png':
+        return true;
+    }
+    return false;
+  }
+
+
 async function validateImage() {
     var image = document.getElementById("image");
 
@@ -33,11 +52,16 @@ async function validateImage() {
         return false;
     }
 
+    if (!isImage(image.value)) {
+        document.getElementById("imageError").innerHTML = "Csak kép formátumok engedélyezettek!";
+        image.style.border = "1px solid red";
+        shakeElement("image");
+        return false;
+    }
     document.getElementById("imageError").innerHTML = "";
     image.style.border = "1px solid green";
     return true;
 }
-
 async function validateGallery() {
     const isValidOpinion = await validateOpinion();
     const isValidImage = await validateImage();
