@@ -6,9 +6,11 @@
   <head>
   </head>
   <body>
-    <div class="container text-light p-3 text-center my-5 border-2" data-aos="zoom-in">  
+    <div class="container text-light p-4 text-center my-5 border-2" data-aos="zoom-in">  
       <hr style="border-width: 1px; border-color: black" class="w-50 shadow">
+      <br><br><br>
       <img src="assets/images/logo-dark.svg" alt="logo" class="img-fluid png-shadow" style="">
+      <br><br><br>
       <hr style="border-width: 1px; border-color: black" class="w-50 shadow">
       <h4 class="pt-5" style="color: black">Hajvágásra van szükséged? Akár egy szakáll igazítás? Nálunk ezt mind megtalálod!</h4>
     </div>

@@ -1,7 +1,7 @@
 <?php
-    $title = "RazorRoom";
+    $title = "MilanBarbershop";
     $menuItems = array(
-        "title" => "RazorRoom",
+        "title" => "MilanBarbershop",
         "login" => "Belépés",
         "logout" => "Kilépés",
         "contact" => "Kapcsolat",

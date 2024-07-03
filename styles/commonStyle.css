@@ -54,13 +54,13 @@
 
 body {
     background-image: url("../assets/images/background.jpg");
-    background-repeat: no-repeat;
+    background-repeat: repeat;
     background-attachment: fixed;
     font-family: "Aldrich", sans-serif; 
 }
 
 .card-bg {
-    background-color: rgba(255, 255, 255, 0.5);
+    background-color: rgba(255, 255, 255, 0.7);
 }
 
 .col-centered{
