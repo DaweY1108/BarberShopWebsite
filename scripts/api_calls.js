@@ -84,20 +84,24 @@ async function get_services(elementId) {
             let id = fetchedData[i].id;
             let price = fetchedData[i].price;
             let name = fetchedData[i].name;
+            let time = fetchedData[i].time;
             let description = fetchedData[i].description;
             let html = `
-            <div class='card card-bg mb-4 box-shadow' data-aos="zoom-in">
-                <div class='card-header'>
-                    <h4 class='my-0 font-weight-normal'>${name}</h4>
-                </div>
-                <div class='card-body'>
-                    <h1 class='card-title pricing-card-title'>${price} Ft</small></h1>
-                    <ul class='list-unstyled mt-3 mb-4'>
-                    <li>${description}</li>
-                    </ul>
-                    <form action='index.php?site=booking&service=${id}' method='POST'>
-                        <button type='submit' class='btn btn-lg btn-block btn-dark'>Foglalok</button>
-                    </form>
+            <div class="col-lg-4 d-flex">
+                <div class='card card-bg mb-4 box-shadow w-100'>
+                    <div class='card-header'>
+                        <h5 class='my-0 font-weight-normal'>${name}</h5>
+                    </div>
+                    <div class='card-body d-flex flex-column justify-content-between'>
+                        <h1 class='card-title pricing-card-title' style="">${price} Ft</h1>
+                        <h5><i class="fa-regular fa-clock fa-sm"></i> ${time} perc</h5>
+                        <ul class='list-unstyled mt-3 mb-4'>
+                            <li>${description}</li>
+                        </ul>
+                        <form action='index.php?site=booking&service=${id}' method='POST' class="mt-auto">
+                            <button type='submit' class='btn btn-lg btn-block btn-dark'>Foglalok</button>
+                        </form>
+                    </div>
                 </div>
             </div>
             `;

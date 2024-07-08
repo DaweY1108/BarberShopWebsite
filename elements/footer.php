@@ -7,7 +7,7 @@
     <div style="margin-top: 20px">
     <body style="padding-bottom: 10%;">
         <div style="position: absolute; bottom: 0; width: 100%;">
-            <div style="margin: 0;">
+            <div style="margin: -1;">
                 <?= $bottomDivider; ?>
             </div>
             <footer class="footer-background" style="width: 100%; height: 60px;">

@@ -13,7 +13,7 @@
         <?= $fullDivider ?>
 
         <div class="container">
-            <div id="services" class="card-deck mb-3 text-center">
+            <div id="services" class="row mb-3 text-center">
         </div>
         <script>
             window.onload = function() {

@@ -13,20 +13,22 @@
             
                     <ul class="contact-info__list list-style--none position-relative z-index-101">
                         <li class="mb-4 pl-4">
-                            <p class="position-absolute"><i class="fas fa-envelope ms-2"></i> support@razorroom.com</p>
+                            <p class="position-absolute"><i class="fas fa-envelope ms-2"></i> milanbarbershop5@gmail.com</p>
                         </li>
                         <li class="mb-4 pl-4">
-                            <p class="position-absolute"><i class="fa-brands fa-facebook ms-2"></i> razorroom</p>
+                            <p class="position-absolute"><i class="fa-brands fa-facebook ms-2"></i> Antal Milán</p>
                         </li>
                         <li class="mb-4 pl-4">
-                            <p class="position-absolute"><i class="fa-brands fa-instagram ms-2"></i> razorroom</p>
+                            <p class="position-absolute"><i class="fa-brands fa-instagram ms-2"></i> milanhaircut_</p>
                         </li>
                         <li class="mb-4 pl-4">
-                            <p class="position-absolute"><i class="fas fa-phone ms-2"></i> +36 30 1234 56 78</p>
+                            <p class="position-absolute"><i class="fas fa-phone ms-2"></i> +36 30 328 0521</p>
                         </li>
+                        <!---
                         <li class="mb-4 pl-4">
                             <p class="position-absolute"><i class="fa-solid fa-map-pin ms-2"></i> 1234 Senkifalva, Alma utca 6.</p>
                         </li>
+                        --->
                     </ul>
                 </div>
                 <div class="col-12 col-lg-6 col-xl-7">
