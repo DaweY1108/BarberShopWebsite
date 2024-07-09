@@ -90,12 +90,12 @@ async function get_services(elementId) {
             <div class="col-lg-4 d-flex">
                 <div class='card card-bg mb-4 box-shadow w-100'>
                     <div class='card-header'>
-                        <h5 class='my-0 font-weight-normal'>${name}</h5>
+                        <h5 class='my-0 font-weight-normal text-center'>${name}</h5>
                     </div>
                     <div class='card-body d-flex flex-column justify-content-between'>
-                        <h1 class='card-title pricing-card-title' style="">${price} Ft</h1>
-                        <h5><i class="fa-regular fa-clock fa-sm"></i> ${time} perc</h5>
-                        <ul class='list-unstyled mt-3 mb-4'>
+                        <h1 class='card-title pricing-card-title text-center' style="">${price} Ft</h1>
+                        <h5 class="text-center"><i class="fa-regular fa-clock fa-sm"></i> ${time} perc</h5>
+                        <ul class='list-unstyled mt-3 mb-4 text-justify'>
                             <li>${description}</li>
                         </ul>
                         <form action='index.php?site=booking&service=${id}' method='POST' class="mt-auto">

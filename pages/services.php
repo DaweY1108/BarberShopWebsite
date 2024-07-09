@@ -12,8 +12,8 @@
 
         <?= $fullDivider ?>
 
-        <div class="container">
-            <div id="services" class="row mb-3 text-center">
+        <div class="m-5">
+            <div id="services" class="row mb-3">
         </div>
         <script>
             window.onload = function() {
